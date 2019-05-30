@@ -4,7 +4,7 @@ import com.noob.spider.Request;
 import com.noob.spider.Task;
 
 /**
- * Scheduler is the part of url management.<br>
+ * Scheduler is the part of url manage.<br>
  * You can implement interface Scheduler to do:
  * manage urls to fetch
  * remove duplicate urls
