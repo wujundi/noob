@@ -45,7 +45,7 @@
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFile"/>
         </logger>
-        <logger name="us.codecraft.webmagic" level="error" additivity="false">
+        <logger name="us.codecraft.com.noob.spider.webmagic" level="error" additivity="false">
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFile"/>
         </logger>

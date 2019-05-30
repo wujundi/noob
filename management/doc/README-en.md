@@ -6,7 +6,7 @@
 
 [![Build Status](https://travis-ci.org/gsh199449/spider.svg?branch=master)](https://travis-ci.org/gsh199449/spider)
 
-Gather Platform is a Web spider console based on [Webmagic](https://github.com/code4craft/webmagic). It's can edit a task configuration and search the data which is collected by the web spider.
+Gather Platform is a Web spider console based on [Webmagic](https://github.com/code4craft/com.noob.spider.webmagic). It's can edit a task configuration and search the data which is collected by the web spider.
 
 > * Gather the data from web page accroding to the configuration
 > * Do the nature language process on the web page data, like: extract keywords, extract summary, extract entity words
