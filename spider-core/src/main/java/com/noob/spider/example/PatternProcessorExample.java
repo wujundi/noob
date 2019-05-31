@@ -1,5 +1,6 @@
 package com.noob.spider.example;
 
+import com.noob.spider.*;
 import com.noob.spider.handler.CompositePageProcessor;
 import com.noob.spider.handler.CompositePipeline;
 import com.noob.spider.handler.PatternProcessor;

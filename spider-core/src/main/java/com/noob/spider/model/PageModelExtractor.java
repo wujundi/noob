@@ -10,8 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.noob.spider.Page;
-import com.noob.spider.selector.*;
-import com.noob.spider.model.Extractor.Source;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -249,7 +247,7 @@ class PageModelExtractor {
                         case Url:
                             value = fieldExtractor.getSelector().selectList(page.getUrl().toString());
                             break;
-                        case ExtractBy.Source.RawText:
+                        case RawText:
                             value = fieldExtractor.getSelector().selectList(page.getRawText());
                             break;
                         default:
@@ -280,7 +278,7 @@ class PageModelExtractor {
                         case Url:
                             value = fieldExtractor.getSelector().select(page.getUrl().toString());
                             break;
-                        case ExtractBy.Source.RawText:
+                        case RawText:
                             value = fieldExtractor.getSelector().select(page.getRawText());
                             break;
                         default:

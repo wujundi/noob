@@ -1,10 +1,15 @@
 package com.noob.spider.processor;
 
+import com.noob.spider.Page;
+import com.noob.spider.ResultItems;
+import com.noob.spider.Site;
+import com.noob.spider.Task;
 import com.noob.spider.downloader.MockGithubDownloader;
 import junit.framework.Assert;
 import org.junit.Test;
 import com.noob.spider.model.OOSpider;
 import com.noob.spider.pipeline.Pipeline;
+
 
 /**
  * @author code4crafter@gmail.com
@@ -17,7 +22,7 @@ public class GithubRepoProcessor implements PageProcessor {
     }
 
     @Override
-    public Site getSite() {
+    public com.noob.spider.Site getSite() {
         return Site.me();
     }
 
