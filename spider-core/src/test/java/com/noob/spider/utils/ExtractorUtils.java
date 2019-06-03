@@ -1,7 +1,6 @@
 package com.noob.spider.utils;
 
 import com.noob.spider.model.annotation.ExtractBy;
-import webmagic.selector.*;
 
 import java.util.ArrayList;
 import java.util.List;

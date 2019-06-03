@@ -4,10 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.noob.spider.Page;
-import webmagic.model.annotation.*;
 import com.noob.spider.model.formatter.ObjectFormatter;
 import com.noob.spider.model.formatter.ObjectFormatterBuilder;
-import webmagic.selector.*;
 import com.noob.spider.utils.ClassUtils;
 import com.noob.spider.utils.ExtractorUtils;
 

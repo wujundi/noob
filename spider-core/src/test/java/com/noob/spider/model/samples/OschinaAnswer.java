@@ -4,7 +4,6 @@ import com.noob.spider.Page;
 import com.noob.spider.Site;
 import com.noob.spider.model.AfterExtractor;
 import com.noob.spider.model.OOSpider;
-import webmagic.model.*;
 import com.noob.spider.model.annotation.ExtractBy;
 import com.noob.spider.model.annotation.HelpUrl;
 import com.noob.spider.model.annotation.TargetUrl;
