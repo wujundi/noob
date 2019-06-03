@@ -1,13 +1,13 @@
 package com.noob.manage.dao;
 
+import com.noob.spider.ResultItems;
+import com.noob.spider.Task;
+import com.noob.spider.pipeline.Pipeline;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.common.xcontent.XContentBuilder;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.pipeline.Pipeline;
 
 import java.io.IOException;
 import java.util.Iterator;

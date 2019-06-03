@@ -2,13 +2,14 @@ package com.noob.manage.dao;
 
 import com.google.gson.Gson;
 import com.noob.manage.model.commons.Webpage;
+import com.noob.spider.ResultItems;
+import com.noob.spider.Task;
+import com.noob.spider.pipeline.Pipeline;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.pipeline.Pipeline;
+
 
 import java.io.File;
 import java.io.IOException;

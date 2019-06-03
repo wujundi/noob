@@ -2,7 +2,7 @@ package com.noob.manage.gather.commons;
 
 import com.noob.manage.model.async.Task;
 import com.noob.manage.model.commons.SpiderInfo;
-import us.codecraft.webmagic.Page;
+import com.noob.spider.Page;
 
 /**
  * PageConsumer

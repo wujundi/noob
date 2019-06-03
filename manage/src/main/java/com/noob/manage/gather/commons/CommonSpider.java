@@ -9,11 +9,19 @@ import com.noob.manage.dao.SpiderInfoDAO;
 import com.noob.manage.gather.async.AsyncGather;
 import com.noob.manage.gather.async.TaskManager;
 import com.noob.manage.model.async.State;
-import com.noob.manage.model.async.Task;
 import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.utils.NLPExtractor;
 import com.noob.manage.utils.StaticValue;
+import com.noob.spider.*;
+import com.noob.spider.monitor.SpiderMonitor;
+import com.noob.spider.pipeline.Pipeline;
+import com.noob.spider.pipeline.ResultItemsCollectorPipeline;
+import com.noob.spider.processor.PageProcessor;
+import com.noob.spider.scheduler.QueueScheduler;
+import com.noob.spider.selector.Html;
+import com.noob.spider.selector.PlainText;
+import com.noob.spider.utils.UrlUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -28,18 +36,7 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.monitor.SpiderMonitor;
-import us.codecraft.webmagic.pipeline.Pipeline;
-import us.codecraft.webmagic.pipeline.ResultItemsCollectorPipeline;
-import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.scheduler.QueueScheduler;
-import us.codecraft.webmagic.selector.Html;
-import us.codecraft.webmagic.selector.PlainText;
-import us.codecraft.webmagic.utils.UrlUtils;
+
 
 import javax.management.JMException;
 import java.io.File;
@@ -455,7 +452,7 @@ public class CommonSpider extends AsyncGather {
         task.addExtraInfo(SPIDER_INFO, info);
         QueueScheduler scheduler = new QueueScheduler() {
             @Override
-            public void pushWhenNoDuplicate(Request request, us.codecraft.webmagic.Task task) {
+            public void pushWhenNoDuplicate(Request request, Task task) {
                 int left = getLeftRequestsCount(task);
                 if (left <= staticValue.getLimitOfCommonWebpageDownloadQueue()) {
                     super.pushWhenNoDuplicate(request, task);

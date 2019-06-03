@@ -2,14 +2,14 @@ package com.noob.manage.dao;
 
 import com.google.gson.Gson;
 import com.noob.manage.utils.StaticValue;
+import com.noob.spider.ResultItems;
+import com.noob.spider.Task;
+import com.noob.spider.pipeline.Pipeline;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.pipeline.Pipeline;
 
 /**
  * Created by gsh199449 on 2016/10/24.

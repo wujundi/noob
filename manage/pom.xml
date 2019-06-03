@@ -193,10 +193,36 @@
         </dependency>
 
         <!-- 依赖 maven 仓库 webmagic 坐标 -->
+
+        <!-- webmagic-core -> spider-core -->
+<!--        <dependency>-->
+<!--            <groupId>us.codecraft</groupId>-->
+<!--            <artifactId>webmagic-core</artifactId>-->
+<!--            <version>0.6.0</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                    <artifactId>slf4j-log4j12</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>slf4j-api</artifactId>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>guava</artifactId>-->
+<!--                    <groupId>com.google.guava</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>commons-lang3</artifactId>-->
+<!--                    <groupId>org.apache.commons</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>webmagic-core</artifactId>
-            <version>0.6.0</version>
+            <groupId>com.noob</groupId>
+            <artifactId>spider-core</artifactId>
+            <version>${project.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -216,10 +242,24 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ -->
+
+        <!-- webmagic-extension -> spider-extension -->
+<!--        <dependency>-->
+<!--            <groupId>us.codecraft</groupId>-->
+<!--            <artifactId>webmagic-extension</artifactId>-->
+<!--            <version>0.6.0</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                    <artifactId>slf4j-log4j12</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>webmagic-extension</artifactId>
-            <version>0.6.0</version>
+            <groupId>com.noob</groupId>
+            <artifactId>spider-extension</artifactId>
+            <version>${project.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -227,7 +267,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ -->
 
         <dependency>
             <groupId>com.hankcs</groupId>

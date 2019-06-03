@@ -1,15 +1,15 @@
 package com.noob.manage.gather.commons;
 
+import com.noob.spider.Page;
+import com.noob.spider.Request;
+import com.noob.spider.Site;
+import com.noob.spider.Task;
+import com.noob.spider.downloader.AbstractDownloader;
+import com.noob.spider.selector.PlainText;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.downloader.AbstractDownloader;
-import us.codecraft.webmagic.selector.PlainText;
 
 /**
  * CasperjsDownloader

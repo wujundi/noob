@@ -2,6 +2,13 @@ package com.noob.manage.gather.commons;
 
 import com.google.common.collect.Sets;
 import com.noob.manage.utils.StaticValue;
+import com.noob.spider.Page;
+import com.noob.spider.Request;
+import com.noob.spider.Site;
+import com.noob.spider.Task;
+import com.noob.spider.downloader.HttpClientDownloader;
+import com.noob.spider.downloader.HttpClientGenerator;
+import com.noob.spider.proxy.Proxy;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -13,13 +20,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.downloader.HttpClientDownloader;
-import us.codecraft.webmagic.downloader.HttpClientGenerator;
-import us.codecraft.webmagic.proxy.Proxy;
 
 import java.io.IOException;
 import java.io.PrintWriter;
