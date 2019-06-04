@@ -8,8 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.noob.spider.Page;
-import webmagic.model.annotation.*;
-import webmagic.selector.*;
 import com.noob.spider.utils.ClassUtils;
 import com.noob.spider.utils.ExtractorUtils;
 
@@ -239,7 +237,7 @@ class PageModelExtractor {
                         case RawHtml:
                             value = page.getHtml().selectDocumentForList(fieldExtractor.getSelector());
                             break;
-                        case com.noob.spider.selector.Html:
+                        case Html:
                             if (isRaw) {
                                 value = page.getHtml().selectDocumentForList(fieldExtractor.getSelector());
                             } else {
@@ -249,7 +247,7 @@ class PageModelExtractor {
                         case Url:
                             value = fieldExtractor.getSelector().selectList(page.getUrl().toString());
                             break;
-                        case ExtractBy.Source.RawText:
+                        case RawText:
                             value = fieldExtractor.getSelector().selectList(page.getRawText());
                             break;
                         default:
@@ -270,7 +268,7 @@ class PageModelExtractor {
                         case RawHtml:
                             value = page.getHtml().selectDocument(fieldExtractor.getSelector());
                             break;
-                        case com.noob.spider.selector.Html:
+                        case Html:
                             if (isRaw) {
                                 value = page.getHtml().selectDocument(fieldExtractor.getSelector());
                             } else {
@@ -280,7 +278,7 @@ class PageModelExtractor {
                         case Url:
                             value = fieldExtractor.getSelector().select(page.getUrl().toString());
                             break;
-                        case ExtractBy.Source.RawText:
+                        case RawText:
                             value = fieldExtractor.getSelector().select(page.getRawText());
                             break;
                         default:

@@ -2,7 +2,8 @@ package com.noob.spider.model.samples;
 
 import com.noob.spider.Page;
 import com.noob.spider.Site;
-import webmagic.model.*;
+import com.noob.spider.model.AfterExtractor;
+import com.noob.spider.model.OOSpider;
 import com.noob.spider.model.annotation.ExtractBy;
 import com.noob.spider.model.annotation.HelpUrl;
 import com.noob.spider.model.annotation.TargetUrl;
@@ -13,7 +14,7 @@ import com.noob.spider.model.annotation.TargetUrl;
 @TargetUrl("http://www.oschina.net/question/\\d+_\\d+*")
 @HelpUrl("http://www.oschina.net/question/*")
 @ExtractBy(value = "//ul[@class='list']/li[@class='Answer']", multi = true)
-public class OschinaAnswer implements AfterExtractor{
+public class OschinaAnswer implements AfterExtractor {
 
     @ExtractBy("//img/@title")
     private String user;

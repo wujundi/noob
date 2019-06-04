@@ -9,11 +9,15 @@ import com.noob.manage.dao.SpiderInfoDAO;
 import com.noob.manage.gather.async.AsyncGather;
 import com.noob.manage.gather.async.TaskManager;
 import com.noob.manage.model.async.State;
+import com.noob.manage.model.async.Task;
 import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.utils.NLPExtractor;
 import com.noob.manage.utils.StaticValue;
-import com.noob.spider.*;
+import com.noob.spider.Page;
+import com.noob.spider.Request;
+import com.noob.spider.Site;
+import com.noob.spider.Spider;
 import com.noob.spider.monitor.SpiderMonitor;
 import com.noob.spider.pipeline.Pipeline;
 import com.noob.spider.pipeline.ResultItemsCollectorPipeline;
@@ -450,15 +454,18 @@ public class CommonSpider extends AsyncGather {
         final String uuid = UUID.randomUUID().toString();
         Task task = taskManager.initTask(uuid, info.getDomain(), info.getCallbackURL(), "spiderInfoId=" + info.getId() + "&spiderUUID=" + uuid);
         task.addExtraInfo(SPIDER_INFO, info);
-        QueueScheduler scheduler = new QueueScheduler() {
-            @Override
-            public void pushWhenNoDuplicate(Request request, Task task) {
-                int left = getLeftRequestsCount(task);
-                if (left <= staticValue.getLimitOfCommonWebpageDownloadQueue()) {
-                    super.pushWhenNoDuplicate(request, task);
-                }
-            }
-        };
+        QueueScheduler scheduler = new QueueScheduler()
+// 2019-06-04 注释掉
+//        {
+//            @Override
+//            public void pushWhenNoDuplicate(Request request, Task task) {
+//                int left = getLeftRequestsCount((com.noob.spider.Task) task);
+//                if (left <= staticValue.getLimitOfCommonWebpageDownloadQueue()) {
+//                    super.pushWhenNoDuplicate(request, (com.noob.spider.Task) task);
+//                }
+//            }
+//        }
+        ;
         if (staticValue.isNeedEs()) {
             scheduler.setDuplicateRemover(commonWebpagePipeline);
         }
@@ -833,14 +840,15 @@ public class CommonSpider extends AsyncGather {
                     .setRetryTimes(info.getRetry()).setSleepTime(info.getSleep())
                     .setCharset(StringUtils.isBlank(info.getCharset()) ? null : info.getCharset())
                     .setUserAgent(info.getUserAgent());
+            // 2019-06-04 注释掉
             //设置抓取代理IP与接口
-            if (StringUtils.isNotBlank(info.getProxyHost()) && info.getProxyPort() > 0) {
-                this.site.setHttpProxy(new HttpHost(info.getProxyHost(), info.getProxyPort()));
-                //设置代理的认证
-                if (StringUtils.isNotBlank(info.getProxyUsername()) && StringUtils.isNotBlank(info.getProxyPassword())) {
-                    this.site.setUsernamePasswordCredentials(new UsernamePasswordCredentials(info.getProxyUsername(), info.getProxyPassword()));
-                }
-            }
+//            if (StringUtils.isNotBlank(info.getProxyHost()) && info.getProxyPort() > 0) {
+//                this.site.setHttpProxy(new HttpHost(info.getProxyHost(), info.getProxyPort()));
+//                //设置代理的认证
+//                if (StringUtils.isNotBlank(info.getProxyUsername()) && StringUtils.isNotBlank(info.getProxyPassword())) {
+//                    this.site.setUsernamePasswordCredentials(new UsernamePasswordCredentials(info.getProxyUsername(), info.getProxyPassword()));
+//                }
+//            }
             this.info = info;
             this.task = task;
         }

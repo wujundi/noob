@@ -1,6 +1,7 @@
 package com.noob.spider.utils;
 
 import com.noob.spider.model.annotation.ExtractBy;
+import com.noob.spider.selector.*;
 
 import java.util.ArrayList;
 import java.util.List;

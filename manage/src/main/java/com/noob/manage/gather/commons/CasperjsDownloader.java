@@ -34,7 +34,8 @@ public class CasperjsDownloader extends AbstractDownloader {
             html = casperjs.gatherHtml(new com.noob.manage.model.commons.Request(request.getUrl(), true));
         } catch (Exception e) {
             if (site.getCycleRetryTimes() > 0) {
-                return addToCycleRetry(request, site);
+                // 2019-06-04 找不到相应方法，故暂时注释掉
+//                return addToCycleRetry(request, site);
             }
             request.putExtra("EXCEPTION", e);
             onError(request);

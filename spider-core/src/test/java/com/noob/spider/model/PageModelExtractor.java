@@ -1,5 +1,7 @@
 package com.noob.spider.model;
 
+import com.noob.spider.model.annotation.*;
+import com.noob.spider.selector.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

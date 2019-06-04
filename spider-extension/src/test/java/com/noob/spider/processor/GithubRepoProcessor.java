@@ -1,8 +1,11 @@
 package com.noob.spider.processor;
 
+import com.noob.spider.Page;
+import com.noob.spider.ResultItems;
+import com.noob.spider.Site;
+import com.noob.spider.Task;
 import junit.framework.Assert;
 import org.junit.Test;
-import webmagic.*;
 import com.noob.spider.downloader.MockGithubDownloader;
 import com.noob.spider.model.OOSpider;
 import com.noob.spider.pipeline.Pipeline;

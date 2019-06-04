@@ -1,7 +1,7 @@
 package com.noob.spider.example;
 
+import com.noob.spider.*;
 import org.apache.log4j.Logger;
-import webmagic.*;
 import com.noob.spider.handler.CompositePageProcessor;
 import com.noob.spider.handler.CompositePipeline;
 import com.noob.spider.handler.PatternProcessor;
