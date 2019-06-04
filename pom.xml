@@ -10,6 +10,7 @@
 		<module>manage</module>
 		<module>spider-core</module>
         <module>spider-extension</module>
+        <module>spider-selenium</module>
     </modules>
 	<packaging>pom</packaging>
 
