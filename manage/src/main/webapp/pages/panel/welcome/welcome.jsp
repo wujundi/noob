@@ -5,6 +5,8 @@
   Time: 下午3:28
   To change this template use File | Settings | File Templates.
 --%>
+<%-- 欢迎页 jsp --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -84,3 +86,5 @@
 	</script> --%>
 </body>
 </html>
+
+<%-- 2019-06-12 23：38--%>

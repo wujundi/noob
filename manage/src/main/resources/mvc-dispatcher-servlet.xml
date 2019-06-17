@@ -43,6 +43,7 @@
             <list>
                 <!--Redis输出-->
                 <!--<ref bean="commonWebpageRedisPipeline"/>-->
+                <!-- 默认存储到 es -->
                 <!--<ref bean="commonWebpagePipeline"/>-->
                 <ref bean="jsonFilePipeline"/>
             </list>
