@@ -153,7 +153,10 @@ public class CommonsSpiderService extends AsyncGatherService {
      */
     public ResultListBundle<Webpage> testSpiderInfo(String spiderInfoJson) {
         SpiderInfo spiderInfo = gson.fromJson(spiderInfoJson, SpiderInfo.class); //通过json传递配置信息，在这里又进行了一次 json -> spiderInfo
-        validateSpiderInfo(spiderInfo);
+        validateSpiderInfo(spiderInfo); // 对常规参数的设置进行一下校验
+        // spiderInfoJson 作为请求的 keyword, commonSpider.testSpiderInfo(spiderInfo) 的值作为返回结果
+        // return bundleBuilder.listBundle(spiderInfoJson,commonSpider.testSpiderInfo(spiderInfo)); 应该更好理解
+        // 因为此处的 listBundle 过分的使用 lambda 表达式，所以代码有些过犹不及了
         return bundleBuilder.listBundle(spiderInfoJson, () -> commonSpider.testSpiderInfo(spiderInfo));
     }
 
@@ -180,6 +183,8 @@ public class CommonsSpiderService extends AsyncGatherService {
 
     /**
      * 验证爬虫模板
+     *
+     * 对常规参数的设定范围进行一下校验
      *
      * @param spiderInfo 爬虫模板
      */

@@ -64,6 +64,7 @@ public class Spider implements Runnable, Task {
 
     protected List<Pipeline> pipelines = new ArrayList<Pipeline>();
 
+    // 负责页面上信息的处理工作
     protected PageProcessor pageProcessor;
 
     protected List<Request> startRequests;
@@ -299,6 +300,7 @@ public class Spider implements Runnable, Task {
         startTime = new Date();
     }
 
+    // Webmagic 核心类 Spider 中的高层抽象逻辑
     @Override
     public void run() {
         checkRunningStat();

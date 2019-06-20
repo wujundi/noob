@@ -122,7 +122,7 @@ public class CommonSpider extends AsyncGather {
     private StaticValue staticValue;
     
     // 我不知道这样写是不是高级，但我有点质疑这里使用 lambda 表达式反而使代码变得不易读了
-    @SuppressWarnings("unchecked")
+    // 页面抓取的主要核心逻辑
     private final PageConsumer spiderInfoPageConsumer = (page, info, task) -> {
         try {
             long start = System.currentTimeMillis();
@@ -494,7 +494,7 @@ public class CommonSpider extends AsyncGather {
         final ResultItemsCollectorPipeline resultItemsCollectorPipeline = new ResultItemsCollectorPipeline(); // 输出到页面的 管道
         final String uuid = UUID.randomUUID().toString();
         Task task = taskManager.initTask(uuid, info.getDomain(), info.getCallbackURL(), "spiderInfoId=" + info.getId() + "&spiderUUID=" + uuid);
-        task.addExtraInfo("spiderInfo", info);
+        task.addExtraInfo("spiderInfo", info); // 为task 中的 extraInfo 设定一个默认值
         QueueScheduler queueScheduler = new QueueScheduler();
         MySpider spider = (MySpider) makeSpider(info, task)
                 .addPipeline(resultItemsCollectorPipeline)
@@ -504,7 +504,7 @@ public class CommonSpider extends AsyncGather {
         } else {
             spider.setDownloader(contentLengthLimitHttpClientDownloader);
         }
-        spider.startUrls(info.getStartURL());
+        spider.startUrls(info.getStartURL()); // 将 url 集合加入到 spider 中准备爬取
         //慎用爬虫监控,可能导致内存泄露
 //        spiderMonitor.register(spider);
         spiderMap.put(uuid, spider);
@@ -664,7 +664,7 @@ public class CommonSpider extends AsyncGather {
      * @return
      */
     private MySpider makeSpider(SpiderInfo info, Task task) {
-        MySpider spider = ((MySpider) new MySpider(new MyPageProcessor(info, task), info)
+        MySpider spider = ((MySpider) new MySpider(new MyPageProcessor(info, task), info) // 这个初始化过程链路稍显繁琐啊。。。
                 .thread(info.getThread())
                 .setUUID(task.getTaskId()));
         if (info.isAjaxSite() && StringUtils.isNotBlank(staticValue.getAjaxDownloader())) {
@@ -756,6 +756,7 @@ public class CommonSpider extends AsyncGather {
 
     /**
      * 在原有的webmagic基础上添加了一些其他功能
+     * MySpider 作为 webmagic 基础 Spider 基础上衍生出来的类，在 CommonSpider 类中广泛使用
      */
     private class MySpider extends Spider {
         private final SpiderInfo SPIDER_INFO;
