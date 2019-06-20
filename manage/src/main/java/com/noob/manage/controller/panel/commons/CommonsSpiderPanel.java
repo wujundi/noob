@@ -34,6 +34,8 @@ import java.util.stream.Collectors;
 /**
  * CommonsSpiderPanel
  *
+ * 是爬虫平台功能入口的核心 controller
+ *
  * @author Gao Shen
  * @version 16/5/11
  */
@@ -123,6 +125,8 @@ public class CommonsSpiderPanel extends BaseController {
 
     /**
      * 编辑爬虫模板
+     *
+     * 将所有以 json 形式输入的参数，映射到 一个 spiderInfo 中, 2019-06-20 8:21
      *
      * @param jsonSpiderInfo json格式的爬虫模板
      * @return

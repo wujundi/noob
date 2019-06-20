@@ -113,6 +113,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
     /**
      * 测试爬虫模板
      *
+     * 对应页面上的 “抓取样例数据” ， 2019-06-20 8：22
      * @param spiderInfoJson
      * @return
      */

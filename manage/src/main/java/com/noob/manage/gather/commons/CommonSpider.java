@@ -491,7 +491,7 @@ public class CommonSpider extends AsyncGather {
      * @return
      */
     public List<Webpage> testSpiderInfo(SpiderInfo info) throws JMException {
-        final ResultItemsCollectorPipeline resultItemsCollectorPipeline = new ResultItemsCollectorPipeline();
+        final ResultItemsCollectorPipeline resultItemsCollectorPipeline = new ResultItemsCollectorPipeline(); // 输出到页面的 管道
         final String uuid = UUID.randomUUID().toString();
         Task task = taskManager.initTask(uuid, info.getDomain(), info.getCallbackURL(), "spiderInfoId=" + info.getId() + "&spiderUUID=" + uuid);
         task.addExtraInfo("spiderInfo", info);

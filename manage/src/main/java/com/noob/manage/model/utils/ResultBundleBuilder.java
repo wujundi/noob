@@ -37,7 +37,7 @@ public class ResultBundleBuilder {
         ResultListBundle<T> resultBundle;
         long start = System.currentTimeMillis();
         try {
-            Collection<T> t = supplier.get();
+            Collection<T> t = supplier.get(); // 先跳到这里，然后马上再跳到 commonSpider 为什么？
             resultBundle = new ResultListBundle<>(t, keyword, System.currentTimeMillis() - start);
         } catch (Exception e) {
             resultBundle = new ResultListBundle<>(keyword, System.currentTimeMillis() - start, false, e.getClass().getName() + ":" + e.getLocalizedMessage());

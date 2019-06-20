@@ -152,7 +152,7 @@ public class CommonsSpiderService extends AsyncGatherService {
      * @return
      */
     public ResultListBundle<Webpage> testSpiderInfo(String spiderInfoJson) {
-        SpiderInfo spiderInfo = gson.fromJson(spiderInfoJson, SpiderInfo.class);
+        SpiderInfo spiderInfo = gson.fromJson(spiderInfoJson, SpiderInfo.class); //通过json传递配置信息，在这里又进行了一次 json -> spiderInfo
         validateSpiderInfo(spiderInfo);
         return bundleBuilder.listBundle(spiderInfoJson, () -> commonSpider.testSpiderInfo(spiderInfo));
     }
