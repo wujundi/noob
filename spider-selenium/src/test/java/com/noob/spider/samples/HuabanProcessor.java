@@ -3,7 +3,6 @@ package com.noob.spider.samples;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
-import com.noob.spider.downloader.selenium.SeleniumDownloader;
 import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
@@ -38,7 +37,7 @@ public class HuabanProcessor implements PageProcessor {
 
     public static void main(String[] args) {
         Spider.create(new HuabanProcessor()).thread(5)
-                .addPipeline(new FilePipeline("/data/webmagic/test/"))
+                .addPipeline(new FilePipeline("/data/webmagic/extension/"))
                 .setDownloader(new SeleniumDownloader("/Users/yihua/Downloads/chromedriver"))
                 .addUrl("http://huaban.com/")
                 .runAsync();

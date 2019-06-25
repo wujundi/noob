@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spider-core" />
         <module name="manage" />
+        <module name="spider-selenium" />
         <module name="spider-extension" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
       <module name="noob" target="1.6" />
       <module name="spider-core" target="1.6" />
       <module name="spider-extension" target="1.6" />
+      <module name="spider-selenium" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

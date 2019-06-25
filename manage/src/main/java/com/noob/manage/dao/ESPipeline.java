@@ -1,8 +1,8 @@
 package com.noob.manage.dao;
 
-import com.noob.spider.ResultItems;
-import com.noob.spider.Task;
-import com.noob.spider.pipeline.Pipeline;
+import com.noob.spider.core.ResultItems;
+import com.noob.spider.core.Task;
+import com.noob.spider.core.pipeline.Pipeline;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

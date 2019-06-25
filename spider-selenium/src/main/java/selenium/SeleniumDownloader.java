@@ -1,12 +1,12 @@
 package selenium;
 
-import com.noob.spider.Page;
-import com.noob.spider.Request;
-import com.noob.spider.Site;
-import com.noob.spider.Task;
-import com.noob.spider.downloader.Downloader;
-import com.noob.spider.selector.Html;
-import com.noob.spider.selector.PlainText;
+import com.noob.spider.core.Page;
+import com.noob.spider.core.Request;
+import com.noob.spider.core.Site;
+import com.noob.spider.core.Task;
+import com.noob.spider.core.downloader.Downloader;
+import com.noob.spider.core.selector.Html;
+import com.noob.spider.core.selector.PlainText;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;

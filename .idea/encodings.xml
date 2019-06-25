@@ -3,8 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/manage" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/management" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spider-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spider-extension" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spider-selenium" charset="UTF-8" />
   </component>
 </project>

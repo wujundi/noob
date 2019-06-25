@@ -92,13 +92,13 @@
             <groupId>net.sf.saxon</groupId>
             <artifactId>Saxon-HE</artifactId>
             <version>9.5.1-1</version>
-<!--            <scope>test</scope>-->
+<!--            <scope>extension</scope>-->
         </dependency>
         <dependency>
             <groupId>net.sourceforge.htmlcleaner</groupId>
             <artifactId>htmlcleaner</artifactId>
             <version>2.5</version>
-<!--            <scope>test</scope>-->
+<!--            <scope>extension</scope>-->
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

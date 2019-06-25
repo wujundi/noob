@@ -1,21 +1,13 @@
 package com.noob.manage.gather.commons;
 
-import com.google.common.collect.Sets;
 import com.noob.manage.utils.StaticValue;
-import com.noob.spider.Page;
-import com.noob.spider.Request;
-import com.noob.spider.Site;
-import com.noob.spider.Task;
-import com.noob.spider.downloader.HttpClientDownloader;
-import com.noob.spider.downloader.HttpClientGenerator;
-import com.noob.spider.proxy.Proxy;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpHost;
+import com.noob.spider.core.Page;
+import com.noob.spider.core.Request;
+import com.noob.spider.core.Task;
+import com.noob.spider.core.downloader.HttpClientDownloader;
+import com.noob.spider.core.downloader.HttpClientGenerator;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +16,8 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * ContentLengthLimitHttpClientDownloader

@@ -2,9 +2,9 @@ package com.noob.manage.dao;
 
 import com.google.gson.Gson;
 import com.noob.manage.utils.StaticValue;
-import com.noob.spider.ResultItems;
-import com.noob.spider.Task;
-import com.noob.spider.pipeline.Pipeline;
+import com.noob.spider.core.ResultItems;
+import com.noob.spider.core.Task;
+import com.noob.spider.core.pipeline.Pipeline;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

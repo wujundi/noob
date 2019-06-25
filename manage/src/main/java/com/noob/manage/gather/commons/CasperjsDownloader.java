@@ -1,11 +1,11 @@
 package com.noob.manage.gather.commons;
 
-import com.noob.spider.Page;
-import com.noob.spider.Request;
-import com.noob.spider.Site;
-import com.noob.spider.Task;
-import com.noob.spider.downloader.AbstractDownloader;
-import com.noob.spider.selector.PlainText;
+import com.noob.spider.core.Page;
+import com.noob.spider.core.Request;
+import com.noob.spider.core.Site;
+import com.noob.spider.core.Task;
+import com.noob.spider.core.downloader.AbstractDownloader;
+import com.noob.spider.core.selector.PlainText;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

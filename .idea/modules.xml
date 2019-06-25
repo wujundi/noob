@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/noob.iml" filepath="$PROJECT_DIR$/noob.iml" />
       <module fileurl="file://$PROJECT_DIR$/spider-core/spider-core.iml" filepath="$PROJECT_DIR$/spider-core/spider-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/spider-extension/spider-extension.iml" filepath="$PROJECT_DIR$/spider-extension/spider-extension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spider-selenium/spider-selenium.iml" filepath="$PROJECT_DIR$/spider-selenium/spider-selenium.iml" />
     </modules>
   </component>
 </project>

@@ -14,25 +14,23 @@ import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.utils.NLPExtractor;
 import com.noob.manage.utils.StaticValue;
-import com.noob.spider.Page;
-import com.noob.spider.Request;
-import com.noob.spider.Site;
-import com.noob.spider.Spider;
-import com.noob.spider.monitor.SpiderMonitor;
-import com.noob.spider.pipeline.Pipeline;
-import com.noob.spider.pipeline.ResultItemsCollectorPipeline;
-import com.noob.spider.processor.PageProcessor;
-import com.noob.spider.scheduler.QueueScheduler;
-import com.noob.spider.selector.Html;
-import com.noob.spider.selector.PlainText;
-import com.noob.spider.utils.UrlUtils;
+import com.noob.spider.core.Page;
+import com.noob.spider.core.Request;
+import com.noob.spider.core.Site;
+import com.noob.spider.core.Spider;
+import com.noob.spider.extension.monitor.SpiderMonitor;
+import com.noob.spider.core.pipeline.Pipeline;
+import com.noob.spider.core.pipeline.ResultItemsCollectorPipeline;
+import com.noob.spider.core.processor.PageProcessor;
+import com.noob.spider.core.scheduler.QueueScheduler;
+import com.noob.spider.core.selector.Html;
+import com.noob.spider.core.selector.PlainText;
+import com.noob.spider.core.utils.UrlUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.tuple.Pair;
-import org.apache.http.HttpHost;
-import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.index.query.Operator;
@@ -459,9 +457,9 @@ public class CommonSpider extends AsyncGather {
 //        {
 //            @Override
 //            public void pushWhenNoDuplicate(Request request, Task task) {
-//                int left = getLeftRequestsCount((com.noob.spider.Task) task);
+//                int left = getLeftRequestsCount((com.noob.spider.core.Task) task);
 //                if (left <= staticValue.getLimitOfCommonWebpageDownloadQueue()) {
-//                    super.pushWhenNoDuplicate(request, (com.noob.spider.Task) task);
+//                    super.pushWhenNoDuplicate(request, (com.noob.spider.core.Task) task);
 //                }
 //            }
 //        }
