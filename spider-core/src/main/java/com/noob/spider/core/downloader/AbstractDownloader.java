@@ -43,6 +43,5 @@ public abstract class AbstractDownloader implements Downloader {
 
 }
 
-/*
-2019-04-16
- */
+// 2019-04-16
+// 2019-06-26 8:13 作为一个抽象类，这里也只是很潦草的实现了一下 download 方法，感觉意义不算太大

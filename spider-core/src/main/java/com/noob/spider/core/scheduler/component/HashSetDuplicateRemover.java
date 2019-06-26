@@ -33,3 +33,5 @@ public class HashSetDuplicateRemover implements DuplicateRemover {
         return urls.size();
     }
 }
+
+// 通过 ConcurrentHashMap 制造出 一个 Hash Set，通过 往 Set 中添加url 的方式来实现 url 去重

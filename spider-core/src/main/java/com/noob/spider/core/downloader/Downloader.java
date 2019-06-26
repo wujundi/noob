@@ -31,3 +31,7 @@ public interface Downloader {
      */
     public void setThread(int threadNum);
 }
+
+// 2019-06-26 8：11
+// downloader 的角色定位是负责在http协议层面进行爬取，把数据带回来
+// 接口 -> 抽象类 -> 具体实现，好像都是这个套路

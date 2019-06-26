@@ -50,3 +50,8 @@ public abstract class DuplicateRemovedScheduler implements Scheduler {
 
     }
 }
+
+// 2019-06-26 8:08
+// 通过实现接口，做了一个抽象类：如果 url 是重复的，就不会重复的添加了
+// 这里使用抽象类的高明之处是，在接口的基础上，进一步指定了接口的push方法的逻辑
+// 但是并没有限制具体使用什么基础结构来实现，给子类预留了发挥的空间

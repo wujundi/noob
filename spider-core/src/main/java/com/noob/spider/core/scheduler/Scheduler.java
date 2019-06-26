@@ -31,3 +31,5 @@ public interface Scheduler {
     public Request poll(Task task);
 
 }
+
+// 2019-06-26 07：56 可以看到 Scheduler 并不是“调度”系统，而是定位在“待爬取队列”这样的角色

@@ -495,7 +495,7 @@ public class CommonSpider extends AsyncGather {
         task.addExtraInfo("spiderInfo", info); // 为task 中的 extraInfo 设定一个默认值
         QueueScheduler queueScheduler = new QueueScheduler();
         MySpider spider = (MySpider) makeSpider(info, task)
-                .addPipeline(resultItemsCollectorPipeline)
+                .addPipeline(resultItemsCollectorPipeline) // Spider 负责组合各个组件，而不直接承担工作。这里看到数据保存是通过 pipeline 来做的，爬完之后直接去 pipeline 里取数据
                 .setScheduler(queueScheduler);
         if (info.isAjaxSite() && StringUtils.isNotBlank(staticValue.getAjaxDownloader())) {
             spider.setDownloader(casperjsDownloader);

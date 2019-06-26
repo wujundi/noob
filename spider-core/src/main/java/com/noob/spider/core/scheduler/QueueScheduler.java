@@ -38,3 +38,7 @@ public class QueueScheduler extends DuplicateRemovedScheduler implements Monitor
         return getDuplicateRemover().getTotalRequestsCount(task);
     }
 }
+
+// 2019-06-26 8:09
+// Scheduler接口提出关键方法，DuplicateRemovedScheduler细化关键方法的逻辑，直到这里，才调用类库给出了具体的实现
+// 每个步骤分工明确，层层递进

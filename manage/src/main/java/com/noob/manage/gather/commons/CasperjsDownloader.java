@@ -31,6 +31,8 @@ public class CasperjsDownloader extends AbstractDownloader {
             site = task.getSite();
         }
         try {
+            // !!! 这里注意 !!! 下面没有使用核心代码中的 Request
+            // 这里的 request 更像是一个用于传递参数的中间结构
             html = casperjs.gatherHtml(new com.noob.manage.model.commons.Request(request.getUrl(), true));
         } catch (Exception e) {
             if (site.getCycleRetryTimes() > 0) {
@@ -53,3 +55,5 @@ public class CasperjsDownloader extends AbstractDownloader {
     public void setThread(int threadNum) {
     }
 }
+
+// 2019-06-26 8:20
