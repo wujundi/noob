@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd1c3de8-ab65-40f0-92d4-8f9cb23db9cc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/Page.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/Request.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/ResultItems.java" afterDir="false" />
@@ -14,8 +15,16 @@
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/Spider.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/SpiderListener.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/AbstractDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/CustomRedirectStrategy.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/Downloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpClientDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpClientGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpClientRequestContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpUriRequestConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/model/HttpRequestBody.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/pipeline/CollectorPipeline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/pipeline/ConsolePipeline.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/pipeline/FilePipeline.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/pipeline/Pipeline.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/pipeline/ResultItemsCollectorPipeline.java" afterDir="false" />
@@ -24,19 +33,50 @@
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/processor/example/BaiduBaikePageProcessor.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/processor/example/GithubRepoPageProcessor.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/processor/example/ZhihuPageProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/proxy/Proxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/proxy/ProxyProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/proxy/SimpleProxyProvider.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/DuplicateRemovedScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/MonitorableScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/PriorityScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/QueueScheduler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/Scheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/component/DuplicateRemover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/component/HashSetDuplicateRemover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/AbstractSelectable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/AndSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/BaseElementSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/CssSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/ElementSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Html.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/HtmlNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Json.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/JsonPathSelector.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/LinksSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/OrSelector.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/PlainText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/RegexResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/RegexSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/ReplaceSelector.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Selectable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Selector.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Selectors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/SmartContentSelector.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/XpathSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/thread/CountableThreadPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/CharsetUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/Experimental.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/FilePersistentBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/HttpClientUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/HttpConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/NumberUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/ProxyUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/UrlUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/WMCollections.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/package.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/HtmlTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/RequestTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/ResultItemsTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/SpiderTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/downloader/HttpClientDownloaderTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/downloader/HttpUriRequestConverterTest.java" afterDir="false" />
@@ -44,6 +84,7 @@
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/downloader/SSLCompatibilityTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/example/GithubRepoPageProcessorTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/pipeline/FilePipelineTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/proxy/ProxyTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/proxy/SimpleProxyProviderTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/scheduler/DuplicateRemovedSchedulerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/scheduler/PrioritySchedulerTest.java" afterDir="false" />
@@ -57,6 +98,7 @@
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/MultiPageModel.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/SimpleHttpClient.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/configurable/ConfigurablePageProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/configurable/ExpressionType.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/configurable/ExtractRule.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/downloader/PhantomJSDownloader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/example/AppStore.java" afterDir="false" />
@@ -69,6 +111,7 @@
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/example/PatternProcessorExample.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/CompositePageProcessor.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/CompositePipeline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/PatternProcessor.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/PatternRequestMatcher.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/RequestMatcher.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/SubPageProcessor.java" afterDir="false" />
@@ -97,6 +140,7 @@
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/model/formatter/ObjectFormatters.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/monitor/SpiderMonitor.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/monitor/SpiderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/monitor/SpiderStatusMXBean.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/pipeline/CollectorPageModelPipeline.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/pipeline/FilePageModelPipeline.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/pipeline/JsonFilePageModelPipeline.java" afterDir="false" />
@@ -107,9 +151,15 @@
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/scheduler/FileCacheQueueScheduler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/scheduler/RedisPriorityScheduler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/scheduler/RedisScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/ClassUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/DoubleKeyMap.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/ExtractorUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/IPUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/MultiKeyMapBase.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/RequestUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-selenium/src/test/java/com/noob/spider/extension/downloader/SeleniumTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/spider-selenium/src/test/java/com/noob/spider/extension/downloader/selenium/SeleniumDownloaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spider-selenium/src/test/java/com/noob/spider/extension/downloader/selenium/WebDriverPoolTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -607,7 +657,7 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/Request.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/RequestTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/ResultItems.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/ResultItemsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/ResultItemsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/ResultItemsTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/SimpleHttpClient.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/SimpleHttpClientTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/Site.java" beforeDir="false" />
@@ -617,26 +667,26 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/Task.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/configurable/ConfigurablePageProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/configurable/ConfigurablePageProcessorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/configurable/ExpressionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/configurable/ExpressionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/configurable/ExpressionType.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/configurable/ExtractRule.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/AbstractDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/CustomRedirectStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/CustomRedirectStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/CustomRedirectStrategy.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/Downloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpClientDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpClientDownloaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpClientGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpClientGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpClientRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpClientRequestContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpUriRequestConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpUriRequestConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpClientGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpClientRequestContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpUriRequestConverter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/HttpUriRequestConverterTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/MockGithubDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/PhantomJSDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/SSLCompatibilityTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/SeleniumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-selenium/src/test/java/com/noob/spider/extension/downloader/SeleniumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/SeleniumTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/selenium/SeleniumDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/selenium/SeleniumDownloaderTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/selenium/WebDriverPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/selenium/WebDriverPoolTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-selenium/src/test/java/com/noob/spider/extension/downloader/selenium/WebDriverPoolTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/downloader/selenium/WebDriverPoolTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/example/AppStore.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/example/BaiduBaike.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/example/GithubRepo.java" beforeDir="false" />
@@ -649,7 +699,7 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/formatter/DateFormatterTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/CompositePageProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/CompositePipeline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/PatternProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/handler/PatternProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/PatternProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/PatternRequestMatcher.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/RequestMatcher.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/handler/SubPageProcessor.java" beforeDir="false" />
@@ -664,7 +714,7 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/GithubRepoApi.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/GithubRepoTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/HasKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/HttpRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/model/HttpRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/HttpRequestBody.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/ModelPageProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/ModelPageProcessorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/model/ModelPipeline.java" beforeDir="false" />
@@ -706,11 +756,11 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/monitor/SpiderMonitor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/monitor/SpiderMonitorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/monitor/SpiderStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/monitor/SpiderStatusMXBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/monitor/SpiderStatusMXBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/monitor/SpiderStatusMXBean.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/CollectorPageModelPipeline.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/CollectorPipeline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/ConsolePipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/pipeline/ConsolePipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/ConsolePipeline.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/FilePageModelPipeline.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/FilePipeline.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/pipeline/FilePipelineTest.java" beforeDir="false" />
@@ -729,10 +779,10 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/processor/example/GithubRepoPageProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/processor/example/ZhihuPageProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/processor/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/processor/package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/Proxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/proxy/Proxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/ProxyProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/proxy/ProxyProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/ProxyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/test/java/com/noob/spider/core/proxy/ProxyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/SimpleProxyProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/proxy/SimpleProxyProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/Proxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/ProxyProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/ProxyTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/SimpleProxyProvider.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/proxy/SimpleProxyProviderTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/samples/AlexanderMcqueenGoodsProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/samples/AmanzonPageProcessor.java" beforeDir="false" />
@@ -768,10 +818,10 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/DuplicateRemovedScheduler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/DuplicateRemovedSchedulerTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/FileCacheQueueScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/MonitorableScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/MonitorableScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/PriorityScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/PriorityScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/MonitorableScheduler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/PriorityScheduler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/PrioritySchedulerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/QueueScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/QueueScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/QueueScheduler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/RedisPriorityScheduler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/RedisPrioritySchedulerTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/RedisScheduler.java" beforeDir="false" />
@@ -779,7 +829,7 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/Scheduler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/component/DuplicateRemover.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/component/HashSetDuplicateRemover.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/component/package.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/component/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/component/package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scheduler/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/scheduler/package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scripts/Language.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scripts/ScriptConsole.java" beforeDir="false" />
@@ -787,54 +837,54 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scripts/ScriptProcessor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scripts/ScriptProcessorBuilder.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/scripts/ScriptProcessorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/AbstractSelectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/AbstractSelectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/AndSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/AndSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/BaseElementSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/BaseElementSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/CssSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/CssSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/ElementSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/ElementSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/AbstractSelectable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/AndSelector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/BaseElementSelector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/CssSelector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/ElementSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/ExtractorsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Html.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Html.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/HtmlNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/HtmlNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Html.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/HtmlNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Json.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/JsonPathSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/JsonPathSelectorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/JsonTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/LinksSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/LinksSelectorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/OrSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/OrSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/OrSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/PlainText.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/RegexResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/RegexResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/RegexSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/RegexSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/RegexResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/RegexSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/RegexSelectorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/ReplaceSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/ReplaceSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/ReplaceSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Selectable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/Selector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Selector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/SelectorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Selectors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/SmartContentSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/SmartContentSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/SmartContentSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/Xpath2Selector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/XpathSelector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/XpathSelectorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/selector/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/selector/package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/thread/CountableThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/thread/CountableThreadPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/CharsetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/CharsetUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/ClassUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/ClassUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/DoubleKeyMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/DoubleKeyMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/Experimental.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/Experimental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/thread/CountableThreadPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/CharsetUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/ClassUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/DoubleKeyMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/Experimental.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/ExtractorUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/FilePersistentBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/FilePersistentBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/HttpClientUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/HttpClientUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/HttpConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/HttpConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/IPUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/IPUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/FilePersistentBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/HttpClientUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/HttpConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/IPUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/IPUtilsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/MultiKeyMapBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/extension/utils/MultiKeyMapBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/NumberUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/NumberUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/MultiKeyMapBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/NumberUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/ProxyUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/RequestUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/RequestUtilsTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/UrlUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/UrlUtilsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/WMCollections.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/WMCollections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/WMCollections.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/main/java/com/noob/spider/utils/package.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/HtmlTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/MockPageModelPipeline.java" beforeDir="false" />
@@ -856,10 +906,10 @@
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/configurable/ConfigurablePageProcessorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/configurable/ExpressionType.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/configurable/ExtractRule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/AbstractDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/AbstractDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/AbstractDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/CustomRedirectStrategy.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/Downloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/HttpClientDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/downloader/HttpClientDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/HttpClientDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/HttpClientDownloaderTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/HttpClientGenerator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/downloader/HttpClientRequestContext.java" beforeDir="false" />
@@ -1116,18 +1166,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/scheduler/RedisSchedulerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/utils/IPUtilsTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -1140,7 +1178,7 @@
         <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/utils/RequestUtilsTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1164,7 +1202,7 @@
         <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/MockPipeline.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1176,7 +1214,7 @@
         <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/SimpleHttpClientTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="314">
-              <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+              <caret line="86" column="49" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1188,7 +1226,7 @@
         <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/model/GithubRepoTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#343#595#0" expanded="true" />
@@ -1215,7 +1253,19 @@
         <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/model/PageMocker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manage/src/main/java/com/noob/manage/dao/CommonWebpagePipeline.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-807">
+              <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1224,13 +1274,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/manage/src/main/java/com/noob/manage/dao/CommonWebpagePipeline.java">
+        <entry file="file://$PROJECT_DIR$/manage/examples/news.163.com.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="8" column="15" selection-end-line="48" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -1370,6 +1417,11 @@
             <path>
               <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
               <item name="noob" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="noob" type="462c0819:PsiDirectoryNode" />
               <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1377,50 +1429,6 @@
               <item name="noob" type="462c0819:PsiDirectoryNode" />
               <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="pipeline" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
@@ -1436,117 +1444,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="configurable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="downloader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="formatter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
-              <item name="SeedUrlWithPortTest.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="processor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-extension" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="extension" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-selenium" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Noob" type="b2602c69:ProjectViewProjectNode" />
-              <item name="noob" type="462c0819:PsiDirectoryNode" />
-              <item name="spider-selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1693,16 +1590,15 @@
       <workItem from="1559221038765" duration="840000" />
       <workItem from="1559302575586" duration="461000" />
       <workItem from="1559561531432" duration="9146000" />
-      <workItem from="1561457978160" duration="8683000" />
+      <workItem from="1561457978160" duration="9009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30293000" />
+    <option name="totallyTimeSpent" value="30619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -1713,10 +1609,10 @@
       <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.29041487" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49928468" weight="0.555414" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49928468" visible="true" weight="0.555414" />
       <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5007153" side_tool="true" weight="0.73503184" />
-      <window_info active="true" anchor="bottom" id="Messages" order="4" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.3299363" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3299363" />
@@ -1744,13 +1640,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/FilePersistentBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spider-core/src/main/java/com/noob/spider/core/utils/HttpClientUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -2109,7 +1998,7 @@
     <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/utils/RequestUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2129,7 +2018,7 @@
     <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/MockPipeline.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2139,7 +2028,7 @@
     <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/SimpleHttpClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
-          <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+          <caret line="86" column="49" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2149,7 +2038,7 @@
     <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/model/GithubRepoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#343#595#0" expanded="true" />
@@ -2172,7 +2061,7 @@
     <entry file="file://$PROJECT_DIR$/spider-extension/src/test/java/com/noob/spider/extension/model/PageMocker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2181,11 +2070,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manage/src/main/java/com/noob/manage/dao/CommonWebpagePipeline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
+        <state relative-caret-position="-807">
           <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage/examples/news.163.com.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-end-line="48" selection-end-column="1" />
         </state>
       </provider>
     </entry>
