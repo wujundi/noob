@@ -31,6 +31,13 @@ import java.util.Map;
  */
 public class HttpUriRequestConverter {
 
+    /**
+     * 这个方法看起来像是组装参数的方法
+     * @param request
+     * @param site
+     * @param proxy
+     * @return
+     */
     public HttpClientRequestContext convert(Request request, Site site, Proxy proxy) {
         HttpClientRequestContext httpClientRequestContext = new HttpClientRequestContext();
         httpClientRequestContext.setHttpUriRequest(convertHttpUriRequest(request, site, proxy));
@@ -38,6 +45,13 @@ public class HttpUriRequestConverter {
         return httpClientRequestContext;
     }
 
+    /**
+     * 这里面加了【代理】和【cookie】
+     * @param request
+     * @param site
+     * @param proxy
+     * @return
+     */
     private HttpClientContext convertHttpClientContext(Request request, Site site, Proxy proxy) {
         HttpClientContext httpContext = new HttpClientContext();
         if (proxy != null && proxy.getUsername() != null) {
@@ -57,6 +71,13 @@ public class HttpUriRequestConverter {
         return httpContext;
     }
 
+    /**
+     * 这里加了【header】和【超时时间】的设置
+     * @param request
+     * @param site
+     * @param proxy
+     * @return
+     */
     private HttpUriRequest convertHttpUriRequest(Request request, Site site, Proxy proxy) {
         RequestBuilder requestBuilder = selectRequestMethod(request).setUri(UrlUtils.fixIllegalCharacterInUrl(request.getUrl()));
         if (site.getHeaders() != null) {
@@ -86,6 +107,11 @@ public class HttpUriRequestConverter {
         return httpUriRequest;
     }
 
+    /**
+     * 这是工厂模式？
+     * @param request
+     * @return
+     */
     private RequestBuilder selectRequestMethod(Request request) {
         String method = request.getMethod();
         if (method == null || method.equalsIgnoreCase(HttpConstant.Method.GET)) {
@@ -105,6 +131,12 @@ public class HttpUriRequestConverter {
         throw new IllegalArgumentException("Illegal HTTP Method " + method);
     }
 
+    /**
+     * 添加【body】的方法
+     * @param requestBuilder
+     * @param request
+     * @return
+     */
     private RequestBuilder addFormParams(RequestBuilder requestBuilder, Request request) {
         if (request.getRequestBody() != null) {
             ByteArrayEntity entity = new ByteArrayEntity(request.getRequestBody().getBody());
@@ -115,3 +147,5 @@ public class HttpUriRequestConverter {
     }
 
 }
+
+// 2019-06-27 22：51 总的来说，这个类把一个请求所用的各种参数都组装起来，吐出一个打包好的请求对象

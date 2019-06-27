@@ -32,3 +32,15 @@ public class HttpClientRequestContext {
     }
 
 }
+
+// 2019-06-27 22：40 这个类就是把 HttpUriRequest 和 HttpClientContext 属性打包在一起的类
+// HttpUriRequest 是干啥的？
+// HttpClientContext 是干啥的？
+
+
+
+
+
+
+
+
