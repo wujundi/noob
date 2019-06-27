@@ -33,3 +33,6 @@ public class HashSetDuplicateRemover implements DuplicateRemover {
         return urls.size();
     }
 }
+
+// 通过 将 ConcurrentHashMap 改造成 HashSet 的方式，最终通过 HashSet 来实现去重
+// HashSetDuplicateRemover 只是作为一个工具，在 DuplicateRemovedScheduler 中协助其在 push 阶段，实现get请求的url去重

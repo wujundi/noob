@@ -31,3 +31,5 @@ public interface Scheduler {
     public Request poll(Task task);
 
 }
+
+// 2019-06-27 同样，Scheduler 作为一个借口，还是“概述性”的提出需要做的事情而已

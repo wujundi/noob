@@ -31,3 +31,6 @@ public interface Downloader {
      */
     public void setThread(int threadNum);
 }
+
+// 2019-06-27 20:02
+

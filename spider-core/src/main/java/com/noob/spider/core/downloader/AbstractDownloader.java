@@ -46,3 +46,8 @@ public abstract class AbstractDownloader implements Downloader {
 /*
 2019-04-16
  */
+// 2019-06-27 20:07 定义了重载的download方法返回Html，
+// 同时定义了onSuccess、onError状态方法，
+// 接口，抽象类，实现方法
+// Downloader -> AbstractDownloader -> HttpClientDownloader
+
