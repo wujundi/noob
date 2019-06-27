@@ -402,6 +402,7 @@ public class Spider implements Runnable, Task {
         }
     }
 
+    // 通过processRequest来处理抓取url的整个流程
     private void processRequest(Request request) {
         Page page = downloader.download(request, this);
         if (page.isDownloadSuccess()){

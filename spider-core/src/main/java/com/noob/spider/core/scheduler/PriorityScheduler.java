@@ -48,14 +48,17 @@ public class PriorityScheduler extends DuplicateRemovedScheduler implements Moni
 
     @Override
     public synchronized Request poll(Task task) {
+        // 优先从高优先级（正向优先级）队列中取数
         Request poll = priorityQueuePlus.poll();
         if (poll != null) {
             return poll;
         }
+        // 高优先级取完之后从普通队列中取
         poll = noPriorityQueue.poll();
         if (poll != null) {
             return poll;
         }
+        // 上述两个都取完之后，再到低优先级（负向优先级）队列中取数
         return priorityQueueMinus.poll();
     }
 
@@ -69,3 +72,6 @@ public class PriorityScheduler extends DuplicateRemovedScheduler implements Moni
         return getDuplicateRemover().getTotalRequestsCount(task);
     }
 }
+
+// 2019-06-27 19:43 通过 java 原生的优先级队列 + 自己定义一个分界线
+// 来实现不同优先级的队列，在弹出时候的先后顺序

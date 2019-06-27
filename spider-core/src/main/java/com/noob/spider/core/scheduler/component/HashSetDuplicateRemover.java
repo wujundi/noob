@@ -34,4 +34,5 @@ public class HashSetDuplicateRemover implements DuplicateRemover {
     }
 }
 
-// 通过 ConcurrentHashMap 制造出 一个 Hash Set，通过 往 Set 中添加url 的方式来实现 url 去重
+// 通过 将 ConcurrentHashMap 改造成 HashSet 的方式，最终通过 HashSet 来实现去重
+// HashSetDuplicateRemover 只是作为一个工具，在 DuplicateRemovedScheduler 中协助其在 push 阶段，实现get请求的url去重

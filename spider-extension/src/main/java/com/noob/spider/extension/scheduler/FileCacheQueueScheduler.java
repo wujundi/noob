@@ -23,6 +23,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Store urls and cursor in files so that a Spider can resume the status when shutdown.<br>
  *
+ * 思路是维护两个文件.cursor.txt,.urls.txt 前者由于存储一个数字，这个数字代表了读取.urls.txt的行数。
+ * 后者用来存储所有的urls。
+ * 初始化时从两个文件读取内存中，并初始化urls集和queue队列、同时初始化flush线程定时flush内容到文件中。
+ *
  * @author code4crafter@gmail.com <br>
  * @since 0.2.0
  */
