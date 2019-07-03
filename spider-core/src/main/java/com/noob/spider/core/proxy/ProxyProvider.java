@@ -27,3 +27,5 @@ public interface ProxyProvider {
     Proxy getProxy(Task task);
     
 }
+
+// 2019-07-03 8:44 Proxy 是代理吗？

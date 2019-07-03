@@ -35,6 +35,7 @@ public class SimpleProxyProvider implements ProxyProvider {
         for (Proxy proxy : proxies) {
             proxiesTemp.add(proxy);
         }
+        // Collections.unmodifiableList 不可变集合
         return new SimpleProxyProvider(Collections.unmodifiableList(proxiesTemp));
     }
 
@@ -48,6 +49,10 @@ public class SimpleProxyProvider implements ProxyProvider {
         return proxies.get(incrForLoop());
     }
 
+    /**
+     * 循环指派
+     * @return
+     */
     private int incrForLoop() {
         int p = pointer.incrementAndGet();
         int size = proxies.size();
@@ -60,3 +65,6 @@ public class SimpleProxyProvider implements ProxyProvider {
         return p % size;
     }
 }
+
+// 2019-07-03 8：53 设想有一堆代理，那么这里就是 分配和安排这些代理的逻辑
+

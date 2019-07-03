@@ -57,6 +57,7 @@ public class HttpClientDownloader extends AbstractDownloader {
         }
         String domain = site.getDomain();
         CloseableHttpClient httpClient = httpClients.get(domain);
+        // 这块这个锁仔细理解下
         if (httpClient == null) {
             synchronized (this) {
                 httpClient = httpClients.get(domain);

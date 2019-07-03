@@ -39,6 +39,9 @@ public class HttpClientGenerator {
 	
     private PoolingHttpClientConnectionManager connectionManager;
 
+    /**
+     * 在构造方法内对 apache 的一些组件进行初始化
+     */
     public HttpClientGenerator() {
         Registry<ConnectionSocketFactory> reg = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", PlainConnectionSocketFactory.INSTANCE)
@@ -151,3 +154,6 @@ public class HttpClientGenerator {
     }
 
 }
+
+// 2019-07-03 08:42 大量使用 apache 的底层组件
+// 由于没有看到运行起来的样子，看地不是很懂，这里需要在调试的时候进来多看一下
