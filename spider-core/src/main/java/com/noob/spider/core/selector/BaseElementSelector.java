@@ -51,3 +51,6 @@ public abstract class BaseElementSelector implements Selector, ElementSelector {
     public abstract boolean hasAttribute();
 
 }
+
+// 2019-07-08 23:07 基于 Jsoup 进行的封装，可以抽取一个或一组数据
+// Jsoup - Java HTML Parser

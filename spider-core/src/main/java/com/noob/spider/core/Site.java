@@ -20,6 +20,9 @@ public class Site {
 
     private Map<String, String> defaultCookies = new LinkedHashMap<String, String>();
 
+    /**
+     * cookies 的结构是 key:domain -> value:cookies
+     */
     private Map<String, Map<String, String>> cookies = new HashMap<String, Map<String, String>>();
 
     private String charset;
@@ -107,6 +110,7 @@ public class Site {
 
     /**
      * get cookies of all domains
+     *
      *
      * @return get cookies
      */

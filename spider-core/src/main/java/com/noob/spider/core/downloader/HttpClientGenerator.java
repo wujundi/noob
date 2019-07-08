@@ -138,6 +138,7 @@ public class HttpClientGenerator {
             return;
         }
         CookieStore cookieStore = new BasicCookieStore();
+        // 把所有的 cookie 都加入到 CookieStore 中去
         for (Map.Entry<String, String> cookieEntry : site.getCookies().entrySet()) {
             BasicClientCookie cookie = new BasicClientCookie(cookieEntry.getKey(), cookieEntry.getValue());
             cookie.setDomain(site.getDomain());

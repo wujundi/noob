@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Selector(extractor) for text.<br>
+ * 2019-07-08 23:03 Selector 主要是用来抽取数据的
  *
  * @author code4crafter@gmail.com <br>
  * @since 0.1.0

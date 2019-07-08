@@ -44,3 +44,6 @@ public class OrSelector implements Selector {
         return results;
     }
 }
+
+// 2019-07-08 23：12 代码是很清晰的
+// 但是这里有一个问题，用户 使用 select/selectList 方法传进来的参数，有可能是适用于多种选择器的吗？

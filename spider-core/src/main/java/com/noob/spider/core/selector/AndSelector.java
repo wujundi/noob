@@ -42,7 +42,7 @@ public class AndSelector implements Selector {
             if (first) {
                 results = selector.selectList(text);
                 first = false;
-            } else {
+            } else { // 如果不是首次调用，那么就将结果集中的数据作为输入，进行下一轮
                 List<String> resultsTemp = new ArrayList<String>();
                 for (String result : results) {
                     resultsTemp.addAll(selector.selectList(result));
@@ -56,3 +56,5 @@ public class AndSelector implements Selector {
         return results;
     }
 }
+
+// 2019-07-08 23：17
