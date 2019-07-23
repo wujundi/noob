@@ -866,3 +866,8 @@ public class CommonSpider extends AsyncGather {
         }
     }
 }
+
+// 2019-07-23 19:33 这里应该是基于 core 包 Spider 进一步扩展的类
+
+
+

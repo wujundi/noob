@@ -297,3 +297,8 @@ public class CommonsSpiderService extends AsyncGatherService {
     }
 
 }
+
+// 2019-07-23 19:28 controller 和 service 层的 commons.spider 包，应该是爬虫基本操作的相关代码
+
+
+

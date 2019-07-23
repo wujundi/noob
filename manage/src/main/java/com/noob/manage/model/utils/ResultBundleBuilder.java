@@ -37,7 +37,11 @@ public class ResultBundleBuilder {
         ResultListBundle<T> resultBundle;
         long start = System.currentTimeMillis();
         try {
-            Collection<T> t = supplier.get(); // 先跳到这里，然后马上再跳到 commonSpider 为什么？
+            /*
+            Q:先跳到这里，然后马上再跳到 commonSpider 为什么？
+            A:supplier 本身是一个集合,而在实际使用时，这个集合往往是一个方法的返回值（原作者往往通过lambda表达式调用这个方法）
+             */
+            Collection<T> t = supplier.get();
             resultBundle = new ResultListBundle<>(t, keyword, System.currentTimeMillis() - start);
         } catch (Exception e) {
             resultBundle = new ResultListBundle<>(keyword, System.currentTimeMillis() - start, false, e.getClass().getName() + ":" + e.getLocalizedMessage());

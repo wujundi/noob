@@ -224,7 +224,7 @@ public class CommonWebpageDAO extends IDAO<Webpage> {
      * @return
      */
     public List<Webpage> getWebpageByDomains(Collection<String> domain, int size, int page) {
-        if (domain.size() == 0) return Lists.newArrayList();
+        if (domain.size() == 0) { return Lists.newArrayList(); }
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
         domain.forEach(s -> boolQueryBuilder.should(QueryBuilders.matchQuery("domain", s)));
         SearchRequestBuilder searchRequestBuilder = client.prepareSearch(INDEX_NAME)
@@ -524,3 +524,5 @@ public class CommonWebpageDAO extends IDAO<Webpage> {
         return Pair.of(warpHits2List(searchHits), searchHits.getTotalHits());
     }
 }
+
+// 2019-07-23 20:07 这个上面挂的是，*.commons.spider 包下属的 CommonWebpageController/Service

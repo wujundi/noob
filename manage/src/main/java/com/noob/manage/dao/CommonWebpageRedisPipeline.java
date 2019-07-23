@@ -37,7 +37,10 @@ public class CommonWebpageRedisPipeline implements Pipeline {
 
     @Override
     public void process(ResultItems resultItems, Task task) {
-        if (!needRedis) return;
+        if (!needRedis) { return; }
+        // 将 redis 当做消息队列来用，将抓取结果发布到对应的“频道”（Channel，类比kafka的Topic)
         long receivedClientsCount = jedis.publish(publishChannelName, gson.toJson(resultItems.getAll()));
     }
 }
+
+// 2019-07-23 20:36

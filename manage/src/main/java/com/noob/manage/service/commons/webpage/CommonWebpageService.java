@@ -46,6 +46,10 @@ public class CommonWebpageService {
      */
     public ResultListBundle<Webpage> getWebpageListBySpiderUUID(String spiderUUID, int size, int page) {
         return bundleBuilder.listBundle(spiderUUID, () -> commonWebpageDAO.getWebpageBySpiderUUID(spiderUUID, size, page));
+        // 2019-07-23 20:05
+        // lambda 表达式通用格式为 (parameters) -> expression
+        // 按照写法可以理解成： (收集某几个参数) -> 用这几个参数去干一件什么事情，并反馈结果
+        // 当然，这里“可选余地” 非常大，可以收集0个参数，也可以不反馈结果(如果后面没啥好返回的话)
     }
 
     /**

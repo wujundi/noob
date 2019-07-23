@@ -231,3 +231,7 @@ public abstract class IDAO<T> {
         }
     }
 }
+
+// 2019-07-23 20:10 作者明确写了这是个 Elasticsearch数据接口
+// 并且 页面信息链条 CommonWebpage 系列的 Dao 层代码继承自这个类
+// 也就是说，项目默认数据就是从 ES 里面查了

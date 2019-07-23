@@ -34,8 +34,6 @@ import java.util.stream.Collectors;
 /**
  * CommonsSpiderPanel
  *
- * 是爬虫平台功能入口的核心 controller
- *
  * @author Gao Shen
  * @version 16/5/11
  */
@@ -279,3 +277,5 @@ public class CommonsSpiderPanel extends BaseController {
         return "panel/commons/createQuartz";
     }
 }
+
+// 2019-07-22 19:25 是爬虫平台功能入口的核心 controller

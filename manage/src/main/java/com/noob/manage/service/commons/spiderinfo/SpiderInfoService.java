@@ -98,3 +98,5 @@ public class SpiderInfoService {
         return bundleBuilder.bundle(spiderInfo.getId(), () -> spiderInfoDAO.update(spiderInfo));
     }
 }
+
+// 2019-07-23 20:24 spiderInfo 系列，都是做与【爬虫模板】相关的事情

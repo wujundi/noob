@@ -186,3 +186,5 @@ public class SpiderInfoDAO extends IDAO<SpiderInfo> {
         }
     }
 }
+
+// 2019-07-23 20:22 spiderInfo 看起来都是个【爬虫模板】相关的事情
