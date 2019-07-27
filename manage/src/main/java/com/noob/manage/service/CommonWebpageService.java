@@ -1,4 +1,4 @@
-package com.noob.manage.service.commons.webpage;
+package com.noob.manage.service;
 
 import com.google.gson.Gson;
 import com.noob.manage.dao.CommonWebpageDAO;

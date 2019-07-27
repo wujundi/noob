@@ -1,11 +1,10 @@
-package com.noob.manage.controller.commons.spider;
+package com.noob.manage.controller;
 
-import com.noob.manage.controller.AsyncGatherBaseController;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
 import com.noob.manage.service.AsyncGatherService;
-import com.noob.manage.service.commons.spider.CommonsSpiderService;
+import com.noob.manage.service.CommonsSpiderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.util.Lists;

@@ -1,11 +1,11 @@
-package com.noob.manage.controller.commons.webpage;
+package com.noob.manage.controller;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
-import com.noob.manage.service.commons.webpage.CommonWebpageService;
+import com.noob.manage.service.CommonWebpageService;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,4 +1,4 @@
-package com.noob.manage.service.commons.spider;
+package com.noob.manage.service;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -14,8 +14,6 @@ import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultBundleBuilder;
 import com.noob.manage.model.utils.ResultListBundle;
-import com.noob.manage.service.AsyncGatherService;
-import com.noob.manage.service.commons.spiderinfo.SpiderInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.Triple;

@@ -1,4 +1,4 @@
-package com.noob.manage.service.commons.spiderinfo;
+package com.noob.manage.service;
 
 import com.noob.manage.dao.SpiderInfoDAO;
 import com.noob.manage.model.commons.SpiderInfo;

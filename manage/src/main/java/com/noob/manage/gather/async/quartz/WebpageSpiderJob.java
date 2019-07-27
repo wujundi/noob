@@ -1,7 +1,7 @@
 package com.noob.manage.gather.async.quartz;
 
 import com.noob.manage.model.commons.SpiderInfo;
-import com.noob.manage.service.commons.spider.CommonsSpiderService;
+import com.noob.manage.service.CommonsSpiderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;

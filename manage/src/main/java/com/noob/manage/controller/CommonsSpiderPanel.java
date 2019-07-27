@@ -1,16 +1,15 @@
-package com.noob.manage.controller.panel.commons;
+package com.noob.manage.controller;
 
 import com.google.gson.Gson;
-import com.noob.manage.controller.BaseController;
 import com.noob.manage.model.async.State;
 import com.noob.manage.model.async.Task;
 import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
-import com.noob.manage.service.commons.spider.CommonsSpiderService;
-import com.noob.manage.service.commons.spiderinfo.SpiderInfoService;
-import com.noob.manage.service.commons.webpage.CommonWebpageService;
+import com.noob.manage.service.CommonsSpiderService;
+import com.noob.manage.service.SpiderInfoService;
+import com.noob.manage.service.CommonWebpageService;
 import com.noob.manage.utils.TablePage;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;

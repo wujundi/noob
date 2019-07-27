@@ -1,10 +1,10 @@
-package com.noob.manage.controller.commons.spiderinfo;
+package com.noob.manage.controller;
 
 import com.google.gson.Gson;
 import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
-import com.noob.manage.service.commons.spiderinfo.SpiderInfoService;
+import com.noob.manage.service.SpiderInfoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

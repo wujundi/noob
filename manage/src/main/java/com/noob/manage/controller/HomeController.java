@@ -1,4 +1,4 @@
-package com.noob.manage.controller.home;
+package com.noob.manage.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.noob.manage.controller.BaseController;
 import com.noob.manage.utils.AppInfo;
 
 /**
