@@ -53,3 +53,5 @@ public class CasperjsDownloader extends AbstractDownloader {
     public void setThread(int threadNum) {
     }
 }
+
+// 2019-07-29 22：49 Casperjs是一个基于PhantomJS和SlimerJS的前端端对端测试框架，在这里应该是为了实现所谓“js页面抓取”

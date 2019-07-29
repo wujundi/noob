@@ -76,6 +76,7 @@ public class CommonWebpageService {
         return bundleBuilder.listBundle(domain.toString(), () -> commonWebpageDAO.getWebpageByDomains(domain, size, page));
     }
 
+
     /**
      * 根据关键词搜索网页
      *
