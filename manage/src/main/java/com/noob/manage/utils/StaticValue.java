@@ -14,6 +14,10 @@ import java.io.IOException;
 
 /**
  * Created by gaoshen on 16/1/14.
+ *
+ * 2019-07-30 22:37 这个类的作用就是将 resources/staticvalue.json 文件内容读到内存中
+ * 这个配置方法，有一点不太方便，可能以后能明白这样做的好处？
+ *
  */
 @Component
 @Scope("singleton")
@@ -52,6 +56,9 @@ public class StaticValue {
     private int commonsWebpageCrawlRatio;
     private String ajaxDownloader;
 
+    /**
+     * 2019-07-30 22:35 从 Static Value 文件读上来的基本配置
+     */
     public StaticValue() {
         LOG.debug("正在初始化StaticValue");
         try {
