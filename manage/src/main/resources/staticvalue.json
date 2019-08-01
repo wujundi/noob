@@ -1,5 +1,5 @@
 {
-  "esHost": "localhost",
+  "esHost": "127.0.0.1",
   "esPort": 9300,
   "esClusterName": "elasticsearch",
   "commonsIndex": "commons",
@@ -11,7 +11,7 @@
   "needRedis": true,
   "needEs": true,
   "redisPort": 6379,
-  "redisHost": "localhost",
+  "redisHost": "127.0.0.1",
   "webpageRedisPublishChannelName": "webpage",
   "commonsWebpageCrawlRatio": 2,
   "ajaxDownloader": "http://localhost:7788/"

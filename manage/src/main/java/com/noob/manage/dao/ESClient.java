@@ -71,6 +71,7 @@ public class ESClient {
         LOG.info("正在初始化ElasticSearch客户端," + staticValue.getEsHost());
         
         Settings settings = Settings.builder()
+                .put("client.transport.sniff", false) // 关闭嗅探
         		.put("cluster.name", staticValue.getEsClusterName()).build();
         try {
         	client = new PreBuiltTransportClient(settings)

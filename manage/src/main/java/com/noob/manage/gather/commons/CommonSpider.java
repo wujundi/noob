@@ -38,8 +38,11 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 
+import javax.annotation.Resource;
 import javax.management.JMException;
 import java.io.File;
 import java.io.IOException;
@@ -55,6 +58,7 @@ import java.util.stream.Collectors;
  * @author Gao Shen
  * @version 16/4/11
  */
+@Component
 public class CommonSpider extends AsyncGather {
     private static final Logger LOG = LogManager.getLogger(CommonSpider.class);
     private static final String LINK_KEY = "LINK_LIST";
@@ -114,9 +118,12 @@ public class CommonSpider extends AsyncGather {
     //慎用爬虫监控,可能导致内存泄露
     private SpiderMonitor spiderMonitor = SpiderMonitor.instance();
     private Map<String, MySpider> spiderMap = new HashMap<>();
+
     private NLPExtractor keywordsExtractor;
     private NLPExtractor summaryExtractor;
     private NLPExtractor namedEntitiesExtractor;
+
+    @Autowired
     private StaticValue staticValue;
     
     // 我不知道这样写是不是高级，但我有点质疑这里使用 lambda 表达式反而使代码变得不易读了
@@ -357,11 +364,24 @@ public class CommonSpider extends AsyncGather {
             task.setDescription("处理网页出错，%s", e.toString());
         }
     };
+
+    @Autowired
     private CasperjsDownloader casperjsDownloader;
+
+    @Autowired
+    @Qualifier("commonWebpagePipeline")
     private List<Pipeline> pipelineList;
+
+    @Autowired
     private CommonWebpagePipeline commonWebpagePipeline;
+
+    @Autowired
     private ContentLengthLimitHttpClientDownloader contentLengthLimitHttpClientDownloader;
+
+    @Autowired
     private CommonWebpageDAO commonWebpageDAO;
+
+    @Autowired
     private SpiderInfoDAO spiderInfoDAO;
 
     @Autowired
