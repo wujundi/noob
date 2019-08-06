@@ -4,7 +4,7 @@ import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
 import com.noob.manage.service.AsyncGatherService;
-import com.noob.manage.service.CommonsSpiderService;
+import com.noob.manage.service.SpiderTaskService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.util.Lists;
@@ -30,14 +30,14 @@ import java.util.Map;
 @Controller
 //@RequestMapping("/commons/spider")
 @RequestMapping("/")
-public class CommonsSpiderController extends AsyncGatherBaseController {
-    private Logger LOG = LogManager.getLogger(CommonsSpiderController.class);
-    private CommonsSpiderService spiderService;
+public class SpiderTaskController extends AsyncGatherBaseController {
+    private Logger LOG = LogManager.getLogger(SpiderTaskController.class);
+    private SpiderTaskService spiderService;
 
     @Autowired
-    public CommonsSpiderController(@Qualifier("commonsSpiderService") AsyncGatherService asyncGatherService) {
+    public SpiderTaskController(@Qualifier("spiderTaskService") AsyncGatherService asyncGatherService) {
         super(asyncGatherService);
-        this.spiderService = (CommonsSpiderService) asyncGatherService;
+        this.spiderService = (SpiderTaskService) asyncGatherService;
     }
 
     /**

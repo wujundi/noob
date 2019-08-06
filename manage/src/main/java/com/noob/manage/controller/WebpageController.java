@@ -5,7 +5,7 @@ import com.google.common.collect.Lists;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
-import com.noob.manage.service.CommonWebpageService;
+import com.noob.manage.service.WebpageService;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,10 +33,10 @@ import java.util.Map;
 //@RequestMapping("/commons/webpage")
 @RequestMapping("/")
 @Controller
-public class CommonWebpageController {
-    private Logger LOG = LogManager.getLogger(CommonWebpageController.class);
+public class WebpageController {
+    private Logger LOG = LogManager.getLogger(WebpageController.class);
     @Autowired
-    private CommonWebpageService webpageService;
+    private WebpageService webpageService;
 
     /**
      * 根据spiderUUID获取结果,翻页方式获取

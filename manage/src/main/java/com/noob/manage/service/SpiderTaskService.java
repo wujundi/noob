@@ -35,11 +35,11 @@ import java.util.Map;
  * @version 16/4/13
  */
 @Component
-public class CommonsSpiderService extends AsyncGatherService {
+public class SpiderTaskService extends AsyncGatherService {
     private final String QUARTZ_JOB_GROUP_NAME = "webpage-spider-job";
     private final String QUARTZ_TRIGGER_GROUP_NAME = "webpage-spider-trigger";
     private final String QUARTZ_TRIGGER_NAME_SUFFIX = "-hours";
-    private Logger LOG = LogManager.getLogger(CommonsSpiderService.class);
+    private Logger LOG = LogManager.getLogger(SpiderTaskService.class);
     @Autowired
     private CommonSpider commonSpider;
     @Autowired
@@ -51,7 +51,7 @@ public class CommonsSpiderService extends AsyncGatherService {
     private Gson gson = new Gson();
 
     @Autowired
-    public CommonsSpiderService(@Qualifier("commonSpider") AsyncGather asyncGather) {
+    public SpiderTaskService(@Qualifier("commonSpider") AsyncGather asyncGather) {
         super(asyncGather);
     }
 

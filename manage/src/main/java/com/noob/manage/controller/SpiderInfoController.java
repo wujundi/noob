@@ -5,10 +5,13 @@ import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
 import com.noob.manage.service.SpiderInfoService;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * SpiderInfoController
@@ -86,6 +89,91 @@ public class SpiderInfoController {
     @ResponseBody
     public ResultBundle<String> save(String spiderInfoJson) {
         return spiderInfoService.index(gson.fromJson(spiderInfoJson, SpiderInfo.class));
+    }
+
+
+    /**
+     * 编辑爬虫模板
+     *
+     * 将所有以 json 形式输入的参数，映射到 一个 spiderInfo 中, 2019-06-20 8:21
+     *
+     * @param jsonSpiderInfo json格式的爬虫模板
+     * @return
+     */
+    @RequestMapping(value = "panel/commons/editSpiderInfo", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView editSpiderInfo(String jsonSpiderInfo) {
+        ModelAndView modelAndView = new ModelAndView("panel/commons/editSpiderInfo");
+        if (StringUtils.isNotBlank(jsonSpiderInfo)) {
+            SpiderInfo spiderInfo = gson.fromJson(jsonSpiderInfo, SpiderInfo.class);
+            //对可能含有html的字段进行转义
+            spiderInfo.setPublishTimeReg(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeReg()))
+                    .setCategoryReg(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryReg()))
+                    .setContentReg(StringEscapeUtils.escapeHtml4(spiderInfo.getContentReg()))
+                    .setTitleReg(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleReg()))
+                    .setPublishTimeXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeXPath()))
+                    .setCategoryXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryXPath()))
+                    .setContentXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getContentXPath()))
+                    .setTitleXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleXPath()));
+            for (SpiderInfo.FieldConfig config : spiderInfo.getDynamicFields()) {
+                config.setRegex(StringEscapeUtils.escapeHtml4(config.getRegex()))
+                        .setXpath(StringEscapeUtils.escapeHtml4(config.getXpath()));
+            }
+            modelAndView.addObject("spiderInfo", spiderInfo)
+                    .addObject("jsonSpiderInfo", jsonSpiderInfo);
+        } else {
+            modelAndView.addObject("spiderInfo", new SpiderInfo());
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 编辑爬虫模板
+     *
+     * @param spiderInfoId 爬虫模板id
+     * @return
+     */
+    @RequestMapping(value = "panel/commons/editSpiderInfoById", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView editSpiderInfoById(String spiderInfoId) {
+        ModelAndView modelAndView = new ModelAndView("panel/commons/editSpiderInfo");
+        SpiderInfo spiderInfo = spiderInfoService.getById(spiderInfoId).getResult();
+        //对可能含有html的字段进行转义
+        spiderInfo.setPublishTimeReg(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeReg()))
+                .setCategoryReg(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryReg()))
+                .setContentReg(StringEscapeUtils.escapeHtml4(spiderInfo.getContentReg()))
+                .setTitleReg(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleReg()))
+                .setPublishTimeXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeXPath()))
+                .setCategoryXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryXPath()))
+                .setContentXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getContentXPath()))
+                .setTitleXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleXPath()));
+
+        for (SpiderInfo.FieldConfig config : spiderInfo.getDynamicFields()) {
+            config.setRegex(StringEscapeUtils.escapeHtml4(config.getRegex()))
+                    .setXpath(StringEscapeUtils.escapeHtml4(config.getXpath()));
+        }
+        modelAndView.addObject("spiderInfo", spiderInfo)
+                .addObject("jsonSpiderInfo", gson.toJson(spiderInfo));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "panel/commons/listSpiderInfo", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView listSpiderInfo(String domain, @RequestParam(defaultValue = "1", required = false) int page) {
+        ModelAndView modelAndView = new ModelAndView("panel/commons/listSpiderInfo");
+        if (StringUtils.isBlank(domain)) {
+            modelAndView.addObject("spiderInfoList", spiderInfoService.listAll(10, page).getResultList());
+        } else {
+            modelAndView.addObject("spiderInfoList", spiderInfoService.getByDomain(domain, 10, page).getResultList());
+        }
+        modelAndView.addObject("page", page)
+                .addObject("domain", domain);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "panel/commons/updateBySpiderInfoID", method = {RequestMethod.GET})
+    public ModelAndView updateBySpiderInfoID(@RequestParam(required = false, defaultValue = "") String spiderInfoIdUpdateBy, @RequestParam(required = false, defaultValue = "") String spiderInfoJson) {
+        ModelAndView modelAndView = new ModelAndView("panel/commons/updateBySpiderInfoID");
+        modelAndView.addObject("spiderInfoJson", spiderInfoJson)
+                .addObject("spiderInfoIdUpdateBy", spiderInfoIdUpdateBy);
+        return modelAndView;
     }
 
 }

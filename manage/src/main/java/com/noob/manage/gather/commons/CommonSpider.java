@@ -3,7 +3,7 @@ package com.noob.manage.gather.commons;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.noob.manage.dao.CommonWebpageDAO;
+import com.noob.manage.dao.WebpageDAO;
 import com.noob.manage.dao.CommonWebpagePipeline;
 import com.noob.manage.dao.SpiderInfoDAO;
 import com.noob.manage.gather.async.AsyncGather;
@@ -42,7 +42,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
-import javax.annotation.Resource;
 import javax.management.JMException;
 import java.io.File;
 import java.io.IOException;
@@ -379,7 +378,7 @@ public class CommonSpider extends AsyncGather {
     private ContentLengthLimitHttpClientDownloader contentLengthLimitHttpClientDownloader;
 
     @Autowired
-    private CommonWebpageDAO commonWebpageDAO;
+    private WebpageDAO webpageDAO;
 
     @Autowired
     private SpiderInfoDAO spiderInfoDAO;
@@ -607,7 +606,7 @@ public class CommonSpider extends AsyncGather {
         Thread thread = new Thread(() -> {
             task.setState(State.RUNNING);
             try {
-                commonWebpageDAO.deleteByDomain(domain, task);
+                webpageDAO.deleteByDomain(domain, task);
             } catch (Exception e) {
                 task.setDescription("删除数据时发生异常{}", e.toString() + e.getLocalizedMessage());
             } finally {
@@ -635,7 +634,7 @@ public class CommonSpider extends AsyncGather {
         Thread thread = new Thread(() -> {
             task.setState(State.RUNNING);
             try {
-                Pair<String, List<Webpage>> pair = commonWebpageDAO.startScroll(QueryBuilders.matchQuery("spiderInfoId", spiderInfoIdUpdateBy).operator(Operator.AND), 50);
+                Pair<String, List<Webpage>> pair = webpageDAO.startScroll(QueryBuilders.matchQuery("spiderInfoId", spiderInfoIdUpdateBy).operator(Operator.AND), 50);
                 int scrollPage = 0;//滚动到第几页了
                 List<Webpage> webpageList = pair.getRight();
                 while (webpageList.size() > 0) {
@@ -659,9 +658,9 @@ public class CommonSpider extends AsyncGather {
                         }
                     }
                     //更新库中数据
-                    boolean hasFail = commonWebpageDAO.update(newWebpageList);
+                    boolean hasFail = webpageDAO.update(newWebpageList);
                     task.setDescription("已经更新%s页数据,错误:%s", ++scrollPage, hasFail);
-                    webpageList = commonWebpageDAO.scrollAllWebpage(pair.getLeft());
+                    webpageList = webpageDAO.scrollAllWebpage(pair.getLeft());
                 }
             } catch (Exception e) {
                 task.setDescription("根据spiderinfoID更新数据时发生异常%s", e.toString() + e.getLocalizedMessage());
@@ -736,12 +735,12 @@ public class CommonSpider extends AsyncGather {
         return this;
     }
 
-    public CommonWebpageDAO getCommonWebpageDAO() {
-        return commonWebpageDAO;
+    public WebpageDAO getWebpageDAO() {
+        return webpageDAO;
     }
 
-    public CommonSpider setCommonWebpageDAO(CommonWebpageDAO commonWebpageDAO) {
-        this.commonWebpageDAO = commonWebpageDAO;
+    public CommonSpider setWebpageDAO(WebpageDAO webpageDAO) {
+        this.webpageDAO = webpageDAO;
         return this;
     }
 

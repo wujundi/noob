@@ -3,13 +3,11 @@ package com.noob.manage.controller;
 import com.google.gson.Gson;
 import com.noob.manage.model.async.State;
 import com.noob.manage.model.async.Task;
-import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.commons.Webpage;
 import com.noob.manage.model.utils.ResultBundle;
 import com.noob.manage.model.utils.ResultListBundle;
-import com.noob.manage.service.CommonsSpiderService;
-import com.noob.manage.service.SpiderInfoService;
-import com.noob.manage.service.CommonWebpageService;
+import com.noob.manage.service.SpiderTaskService;
+import com.noob.manage.service.WebpageService;
 import com.noob.manage.utils.TablePage;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -43,11 +41,9 @@ public class CommonsSpiderPanel extends BaseController {
     private static final Gson gson = new Gson();
     private Logger LOG = LogManager.getLogger(CommonsSpiderPanel.class);
     @Autowired
-    private CommonsSpiderService commonsSpiderService;
+    private SpiderTaskService spiderTaskService;
     @Autowired
-    private CommonWebpageService commonWebpageService;
-    @Autowired
-    private SpiderInfoService spiderInfoService;
+    private WebpageService webpageService;
 
     /**
      * 已抓取的网页列表
@@ -73,7 +69,7 @@ public class CommonsSpiderPanel extends BaseController {
         }
         page = page < 1 ? 1 : page;
         TablePage tp = null;
-        ResultBundle<Pair<List<Webpage>, Long>> resultBundle = commonWebpageService.getWebPageByKeywordAndDomain(query, domain, 10, page);
+        ResultBundle<Pair<List<Webpage>, Long>> resultBundle = webpageService.getWebPageByKeywordAndDomain(query, domain, 10, page);
         if (resultBundle.getResult().getRight() > 0) {
             tp = new TablePage(resultBundle.getResult().getRight(), page, 10);
             tp.checkAgain();
@@ -92,7 +88,7 @@ public class CommonsSpiderPanel extends BaseController {
     @RequestMapping(value = "panel/commons/domainList", method = RequestMethod.GET)
     public ModelAndView domainList(@RequestParam(defaultValue = "50", required = false, value = "size") int size) {
         ModelAndView modelAndView = new ModelAndView("panel/commons/domainList");
-        modelAndView.addObject("domainList", commonWebpageService.countDomain(size).getResult());
+        modelAndView.addObject("domainList", webpageService.countDomain(size).getResult());
         return modelAndView;
     }
 
@@ -106,11 +102,11 @@ public class CommonsSpiderPanel extends BaseController {
         ModelAndView modelAndView = new ModelAndView("panel/commons/listTasks");
         ResultListBundle<Task> listBundle;
         if (!showRunning) {
-            listBundle = commonsSpiderService.getTaskList(true);
+            listBundle = spiderTaskService.getTaskList(true);
         } else {
-            listBundle = commonsSpiderService.getTasksFilterByState(State.RUNNING, true);
+            listBundle = spiderTaskService.getTasksFilterByState(State.RUNNING, true);
         }
-        ResultBundle<Long> runningTaskCount = commonsSpiderService.countByState(State.RUNNING);
+        ResultBundle<Long> runningTaskCount = spiderTaskService.countByState(State.RUNNING);
         modelAndView.addObject("resultBundle", listBundle)
                 .addObject("runningTaskCount", runningTaskCount.getResult())
                 .addObject("spiderInfoList", listBundle.getResultList().stream()
@@ -121,89 +117,8 @@ public class CommonsSpiderPanel extends BaseController {
         return modelAndView;
     }
 
-    /**
-     * 编辑爬虫模板
-     *
-     * 将所有以 json 形式输入的参数，映射到 一个 spiderInfo 中, 2019-06-20 8:21
-     *
-     * @param jsonSpiderInfo json格式的爬虫模板
-     * @return
-     */
-    @RequestMapping(value = "panel/commons/editSpiderInfo", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView editSpiderInfo(String jsonSpiderInfo) {
-        ModelAndView modelAndView = new ModelAndView("panel/commons/editSpiderInfo");
-        if (StringUtils.isNotBlank(jsonSpiderInfo)) {
-            SpiderInfo spiderInfo = gson.fromJson(jsonSpiderInfo, SpiderInfo.class);
-            //对可能含有html的字段进行转义
-            spiderInfo.setPublishTimeReg(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeReg()))
-                    .setCategoryReg(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryReg()))
-                    .setContentReg(StringEscapeUtils.escapeHtml4(spiderInfo.getContentReg()))
-                    .setTitleReg(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleReg()))
-                    .setPublishTimeXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeXPath()))
-                    .setCategoryXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryXPath()))
-                    .setContentXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getContentXPath()))
-                    .setTitleXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleXPath()));
-            for (SpiderInfo.FieldConfig config : spiderInfo.getDynamicFields()) {
-                config.setRegex(StringEscapeUtils.escapeHtml4(config.getRegex()))
-                        .setXpath(StringEscapeUtils.escapeHtml4(config.getXpath()));
-            }
-            modelAndView.addObject("spiderInfo", spiderInfo)
-                    .addObject("jsonSpiderInfo", jsonSpiderInfo);
-        } else {
-            modelAndView.addObject("spiderInfo", new SpiderInfo());
-        }
-        return modelAndView;
-    }
 
-    /**
-     * 编辑爬虫模板
-     *
-     * @param spiderInfoId 爬虫模板id
-     * @return
-     */
-    @RequestMapping(value = "panel/commons/editSpiderInfoById", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView editSpiderInfoById(String spiderInfoId) {
-        ModelAndView modelAndView = new ModelAndView("panel/commons/editSpiderInfo");
-        SpiderInfo spiderInfo = spiderInfoService.getById(spiderInfoId).getResult();
-        //对可能含有html的字段进行转义
-        spiderInfo.setPublishTimeReg(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeReg()))
-                .setCategoryReg(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryReg()))
-                .setContentReg(StringEscapeUtils.escapeHtml4(spiderInfo.getContentReg()))
-                .setTitleReg(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleReg()))
-                .setPublishTimeXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getPublishTimeXPath()))
-                .setCategoryXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getCategoryXPath()))
-                .setContentXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getContentXPath()))
-                .setTitleXPath(StringEscapeUtils.escapeHtml4(spiderInfo.getTitleXPath()));
 
-        for (SpiderInfo.FieldConfig config : spiderInfo.getDynamicFields()) {
-            config.setRegex(StringEscapeUtils.escapeHtml4(config.getRegex()))
-                    .setXpath(StringEscapeUtils.escapeHtml4(config.getXpath()));
-        }
-        modelAndView.addObject("spiderInfo", spiderInfo)
-                .addObject("jsonSpiderInfo", gson.toJson(spiderInfo));
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "panel/commons/listSpiderInfo", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView listSpiderInfo(String domain, @RequestParam(defaultValue = "1", required = false) int page) {
-        ModelAndView modelAndView = new ModelAndView("panel/commons/listSpiderInfo");
-        if (StringUtils.isBlank(domain)) {
-            modelAndView.addObject("spiderInfoList", spiderInfoService.listAll(10, page).getResultList());
-        } else {
-            modelAndView.addObject("spiderInfoList", spiderInfoService.getByDomain(domain, 10, page).getResultList());
-        }
-        modelAndView.addObject("page", page)
-                .addObject("domain", domain);
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "panel/commons/updateBySpiderInfoID", method = {RequestMethod.GET})
-    public ModelAndView updateBySpiderInfoID(@RequestParam(required = false, defaultValue = "") String spiderInfoIdUpdateBy, @RequestParam(required = false, defaultValue = "") String spiderInfoJson) {
-        ModelAndView modelAndView = new ModelAndView("panel/commons/updateBySpiderInfoID");
-        modelAndView.addObject("spiderInfoJson", spiderInfoJson)
-                .addObject("spiderInfoIdUpdateBy", spiderInfoIdUpdateBy);
-        return modelAndView;
-    }
 
     /**
      * 根据网页id展示网页
@@ -214,8 +129,8 @@ public class CommonsSpiderPanel extends BaseController {
     @RequestMapping(value = "panel/commons/showWebpageById", method = {RequestMethod.GET})
     public ModelAndView showWebpageById(String id) {
         ModelAndView modelAndView = new ModelAndView("panel/commons/showWebpageById");
-        modelAndView.addObject("webpage", commonWebpageService.getWebpageById(id).getResult())
-                .addObject("relatedWebpageList", commonWebpageService.moreLikeThis(id, 15, 1).getResultList());
+        modelAndView.addObject("webpage", webpageService.getWebpageById(id).getResult())
+                .addObject("relatedWebpageList", webpageService.moreLikeThis(id, 15, 1).getResultList());
         return modelAndView;
     }
 
@@ -229,7 +144,7 @@ public class CommonsSpiderPanel extends BaseController {
     @RequestMapping(value = "panel/commons/showRelatedInfo", method = {RequestMethod.GET})
     public ModelAndView showRelatedInfo(String query, @RequestParam(required = false, defaultValue = "10") int size) {
         ModelAndView modelAndView = new ModelAndView("panel/commons/showRelatedInfo");
-        Pair<Map<String, List<Terms.Bucket>>, List<Webpage>> result = commonWebpageService.relatedInfo(query, size).getResult();
+        Pair<Map<String, List<Terms.Bucket>>, List<Webpage>> result = webpageService.relatedInfo(query, size).getResult();
         String title = "";
         String[] queryArray = query.split(":");
         String field = queryArray[0];
@@ -260,13 +175,13 @@ public class CommonsSpiderPanel extends BaseController {
 
     @RequestMapping(value = "panel/commons/listQuartz")
     public String listQuartz(Model model) {
-        model.addAttribute("list", commonsSpiderService.listAllQuartzJobs().getResult());
+        model.addAttribute("list", spiderTaskService.listAllQuartzJobs().getResult());
         return "panel/commons/listQuartz";
     }
 
     @RequestMapping(value = "panel/commons/createQuartz", method = RequestMethod.POST)
     public String createQuartz(String spiderInfoId, int hourInterval, RedirectAttributes redirectAttributes) {
-        commonsSpiderService.createQuartzJob(spiderInfoId, hourInterval);
+        spiderTaskService.createQuartzJob(spiderInfoId, hourInterval);
         redirectAttributes.addFlashAttribute("msg", "添加成功");
         return "redirect:/panel/commons/listQuartz";
     }

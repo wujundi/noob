@@ -1,7 +1,7 @@
 package com.noob.manage.service;
 
 import com.google.gson.Gson;
-import com.noob.manage.dao.CommonWebpageDAO;
+import com.noob.manage.dao.WebpageDAO;
 import com.noob.manage.gather.commons.CommonSpider;
 import com.noob.manage.model.commons.SpiderInfo;
 import com.noob.manage.model.commons.Webpage;
@@ -28,11 +28,11 @@ import java.util.Map;
  * @version 16/4/19
  */
 @Component
-public class CommonWebpageService {
+public class WebpageService {
     private static final Gson gson = new Gson();
-    private Logger LOG = LogManager.getLogger(CommonWebpageService.class);
+    private Logger LOG = LogManager.getLogger(WebpageService.class);
     @Autowired
-    private CommonWebpageDAO commonWebpageDAO;
+    private WebpageDAO webpageDAO;
     @Autowired
     private ResultBundleBuilder bundleBuilder;
     @Autowired
@@ -45,7 +45,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultListBundle<Webpage> getWebpageListBySpiderUUID(String spiderUUID, int size, int page) {
-        return bundleBuilder.listBundle(spiderUUID, () -> commonWebpageDAO.getWebpageBySpiderUUID(spiderUUID, size, page));
+        return bundleBuilder.listBundle(spiderUUID, () -> webpageDAO.getWebpageBySpiderUUID(spiderUUID, size, page));
         // 2019-07-23 20:05
         // lambda 表达式通用格式为 (parameters) -> expression
         // 按照写法可以理解成： (收集某几个参数) -> 用这几个参数去干一件什么事情，并反馈结果
@@ -61,7 +61,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultListBundle<Webpage> getWebpageByDomain(String domain, int size, int page) {
-        return bundleBuilder.listBundle(domain, () -> commonWebpageDAO.getWebpageByDomain(domain, size, page));
+        return bundleBuilder.listBundle(domain, () -> webpageDAO.getWebpageByDomain(domain, size, page));
     }
 
     /**
@@ -73,7 +73,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultListBundle<Webpage> getWebpageByDomains(Collection<String> domain, int size, int page) {
-        return bundleBuilder.listBundle(domain.toString(), () -> commonWebpageDAO.getWebpageByDomains(domain, size, page));
+        return bundleBuilder.listBundle(domain.toString(), () -> webpageDAO.getWebpageByDomains(domain, size, page));
     }
 
 
@@ -86,7 +86,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultListBundle<Webpage> searchByQuery(String query, int size, int page) {
-        return bundleBuilder.listBundle(query, () -> commonWebpageDAO.searchByQuery(query, size, page));
+        return bundleBuilder.listBundle(query, () -> webpageDAO.searchByQuery(query, size, page));
     }
 
     /**
@@ -96,7 +96,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultBundle<Webpage> getWebpageById(String id) {
-        return bundleBuilder.bundle(id, () -> commonWebpageDAO.getWebpageById(id));
+        return bundleBuilder.bundle(id, () -> webpageDAO.getWebpageById(id));
     }
 
     /**
@@ -106,7 +106,7 @@ public class CommonWebpageService {
      * @return 是否删除
      */
     public ResultBundle<Boolean> deleteById(String id) {
-        return bundleBuilder.bundle(id, () -> commonWebpageDAO.deleteById(id));
+        return bundleBuilder.bundle(id, () -> webpageDAO.deleteById(id));
     }
 
     /**
@@ -117,7 +117,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultListBundle<Webpage> listAll(int size, int page) {
-        return bundleBuilder.listBundle(null, () -> commonWebpageDAO.listAll(size, page));
+        return bundleBuilder.listBundle(null, () -> webpageDAO.listAll(size, page));
     }
 
     /**
@@ -127,7 +127,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultBundle<Map<String, Long>> countDomain(int size) {
-        return bundleBuilder.bundle(null, () -> commonWebpageDAO.countDomain(size));
+        return bundleBuilder.bundle(null, () -> webpageDAO.countDomain(size));
     }
 
     /**
@@ -136,7 +136,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultBundle<Map<String, Long>> countWordByDomain(String domain) {
-        return bundleBuilder.bundle(null, () -> commonWebpageDAO.countWordByDomain(domain));
+        return bundleBuilder.bundle(null, () -> webpageDAO.countWordByDomain(domain));
     }
 
     /**
@@ -148,7 +148,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultListBundle<Webpage> moreLikeThis(String id, int size, int page) {
-        return bundleBuilder.listBundle(id, () -> commonWebpageDAO.moreLikeThis(id, size, page));
+        return bundleBuilder.listBundle(id, () -> webpageDAO.moreLikeThis(id, size, page));
     }
 
     /**
@@ -158,7 +158,7 @@ public class CommonWebpageService {
      * @return
      */
     public ResultBundle<Map<Date, Long>> countDomainByGatherTime(String domain) {
-        return bundleBuilder.bundle(domain, () -> commonWebpageDAO.countDomainByGatherTime(domain));
+        return bundleBuilder.bundle(domain, () -> webpageDAO.countDomainByGatherTime(domain));
     }
 
     /**
@@ -177,7 +177,7 @@ public class CommonWebpageService {
      * @return 滚动id
      */
     public ResultBundle<Pair<String, List<Webpage>>> startScroll() {
-        return bundleBuilder.bundle(null, () -> commonWebpageDAO.startScroll());
+        return bundleBuilder.bundle(null, () -> webpageDAO.startScroll());
     }
 
     /**
@@ -187,7 +187,7 @@ public class CommonWebpageService {
      * @return 网页列表
      */
     public ResultListBundle<Webpage> scrollAllWebpage(String scrollId) {
-        return bundleBuilder.listBundle(scrollId, () -> commonWebpageDAO.scrollAllWebpage(scrollId));
+        return bundleBuilder.listBundle(scrollId, () -> webpageDAO.scrollAllWebpage(scrollId));
     }
 
     /**
@@ -211,7 +211,7 @@ public class CommonWebpageService {
      * @return 相关信息
      */
     public ResultBundle<Pair<Map<String, List<Terms.Bucket>>, List<Webpage>>> relatedInfo(String query, int size) {
-        return bundleBuilder.bundle(query, () -> commonWebpageDAO.relatedInfo(query, size));
+        return bundleBuilder.bundle(query, () -> webpageDAO.relatedInfo(query, size));
     }
 
     /**
@@ -221,7 +221,7 @@ public class CommonWebpageService {
      * @param outputStream 文件输出流
      */
     public void exportTitleContentPairBySpiderUUID(String uuid, OutputStream outputStream) {
-        commonWebpageDAO.exportTitleContentPairBySpiderUUID(uuid, outputStream);
+        webpageDAO.exportTitleContentPairBySpiderUUID(uuid, outputStream);
     }
 
     /**
@@ -232,7 +232,7 @@ public class CommonWebpageService {
      * @param outputStream 文件输出流
      */
     public void exportWebpageJSONBySpiderUUID(String uuid, Boolean includeRaw, OutputStream outputStream) {
-        commonWebpageDAO.exportWebpageJSONBySpiderUUID(uuid, includeRaw, outputStream);
+        webpageDAO.exportWebpageJSONBySpiderUUID(uuid, includeRaw, outputStream);
     }
 
     /**
@@ -243,7 +243,7 @@ public class CommonWebpageService {
      * @param outputStream 文件输出流
      */
     public void exportWebpageJSONByDomain(String domain, Boolean includeRaw, OutputStream outputStream) {
-        commonWebpageDAO.exportWebpageJSONByDomain(domain, includeRaw, outputStream);
+        webpageDAO.exportWebpageJSONByDomain(domain, includeRaw, outputStream);
     }
 
 	/**
@@ -255,6 +255,6 @@ public class CommonWebpageService {
 	 * @return
 	 */
     public ResultBundle<Pair<List<Webpage>, Long>> getWebPageByKeywordAndDomain(String query, String domain, int size, int page) {
-        return bundleBuilder.bundle(query, () -> commonWebpageDAO.getWebpageByKeywordAndDomain(query, domain, size, page));
+        return bundleBuilder.bundle(query, () -> webpageDAO.getWebpageByKeywordAndDomain(query, domain, size, page));
     }
 }
