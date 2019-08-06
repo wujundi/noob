@@ -238,7 +238,7 @@ public class SpiderTaskService extends AsyncGatherService {
         SpiderInfo spiderInfo = spiderInfoService.getById(spiderInfoId).getResult();
         Map<String, Object> data = Maps.newHashMap();
         data.put("spiderInfo", spiderInfo);
-        data.put("commonsSpiderService", this);
+        data.put("SpiderTaskService", this);
         quartzManager.addJob(spiderInfo.getId(), QUARTZ_JOB_GROUP_NAME,
                 String.valueOf(hoursInterval) + "-" + spiderInfo.getId() + QUARTZ_TRIGGER_NAME_SUFFIX, QUARTZ_TRIGGER_GROUP_NAME
                 , WebpageSpiderJob.class, data, hoursInterval);

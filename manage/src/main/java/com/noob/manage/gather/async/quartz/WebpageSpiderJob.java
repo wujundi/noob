@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 public class WebpageSpiderJob extends QuartzJobBean {
     private Logger LOG = LogManager.getLogger(WebpageSpiderJob.class);
     private SpiderInfo spiderInfo;
-
     private SpiderTaskService spiderTaskService;
 
     public WebpageSpiderJob setSpiderTaskService(SpiderTaskService spiderTaskService) {
