@@ -30,7 +30,8 @@ import java.util.Map;
  * @author Gao Shen
  * @version 16/4/19
  */
-@RequestMapping("/commons/webpage")
+//@RequestMapping("/commons/webpage")
+@RequestMapping("/")
 @Controller
 public class CommonWebpageController {
     private Logger LOG = LogManager.getLogger(CommonWebpageController.class);
@@ -46,7 +47,7 @@ public class CommonWebpageController {
      * @return
      * @throws IOException
      */
-    @RequestMapping(value = "getWebpageListBySpiderUUID", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/getWebpageListBySpiderUUID", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> getWebpageListBySpiderUUID(String spiderUUID, @RequestParam(value = "size", required = false, defaultValue = "10") int size, @RequestParam(value = "page", required = false, defaultValue = "1") int page) throws IOException {
         return webpageService.getWebpageListBySpiderUUID(spiderUUID, size, page);
@@ -59,7 +60,7 @@ public class CommonWebpageController {
      * @param page   页码
      * @return
      */
-    @RequestMapping(value = "getWebpageByDomain", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/getWebpageByDomain", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> getWebpageByDomain(String domain, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         return webpageService.getWebpageByDomain(domain, 10, page);
@@ -71,7 +72,7 @@ public class CommonWebpageController {
      * @param id 网页id
      * @return
      */
-    @RequestMapping(value = "getWebpageById", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/getWebpageById", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Webpage> getWebpageById(String id) {
         return webpageService.getWebpageById(id);
@@ -83,7 +84,7 @@ public class CommonWebpageController {
      * @param id 网页id
      * @return 是否删除
      */
-    @RequestMapping(value = "deleteById", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/deleteById", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Boolean> deleteById(String id) {
         return webpageService.deleteById(id);
@@ -97,7 +98,7 @@ public class CommonWebpageController {
      * @param page  页码
      * @return
      */
-    @RequestMapping(value = "searchByQuery", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/searchByQuery", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> searchByQuery(String query, @RequestParam(value = "size", required = false, defaultValue = "10") int size, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         return webpageService.searchByQuery(query, size, page);
@@ -111,7 +112,7 @@ public class CommonWebpageController {
      * @param page 页码
      * @return
      */
-    @RequestMapping(value = "moreLikeThis", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/moreLikeThis", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> moreLikeThis(String id, @RequestParam(value = "size", required = false, defaultValue = "10") int size, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         return webpageService.moreLikeThis(id, size, page);
@@ -123,7 +124,7 @@ public class CommonWebpageController {
      * @param size 大小
      * @return
      */
-    @RequestMapping(value = "countDomain", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/countDomain", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Map<String, Long>> countDomain(@RequestParam(value = "size", required = false, defaultValue = "50") int size) {
         return webpageService.countDomain(size);
@@ -135,7 +136,7 @@ public class CommonWebpageController {
      * @param domain 网站域名
      * @return
      */
-    @RequestMapping(value = "countDomainByGatherTime", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/countDomainByGatherTime", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Map<Date, Long>> countDomainByGatherTime(String domain) {
         return webpageService.countDomainByGatherTime(domain);
@@ -147,7 +148,7 @@ public class CommonWebpageController {
      * @param domain 网站域名
      * @return 删除任务ID
      */
-    @RequestMapping(value = "deleteByDomain", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/deleteByDomain", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> deleteByDomain(String domain) {
         return webpageService.deleteByDomain(domain);
@@ -158,7 +159,7 @@ public class CommonWebpageController {
      *
      * @return 滚动id
      */
-    @RequestMapping(value = "startScroll", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/startScroll", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Pair<String, List<Webpage>>> startScroll() {
         return webpageService.startScroll();
@@ -170,7 +171,7 @@ public class CommonWebpageController {
      * @param scrollId scrollId
      * @return 网页列表
      */
-    @RequestMapping(value = "scrollAllWebpage", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/scrollAllWebpage", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> scrollAllWebpage(String scrollId) {
         return webpageService.scrollAllWebpage(scrollId);
@@ -183,7 +184,7 @@ public class CommonWebpageController {
      * @param page 页码
      * @return
      */
-    @RequestMapping(value = "listAll", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/listAll", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> listAll(int size, int page) {
         Preconditions.checkArgument(size * page < 1000, "最多获取前1000条数据");
@@ -198,7 +199,7 @@ public class CommonWebpageController {
      * @param spiderInfoJson       新的网页抽取模板
      * @return 是否全部数据删除成功
      */
-    @RequestMapping(value = "updateBySpiderinfoID", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/commons/webpage/updateBySpiderinfoID", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> updateBySpiderinfoID(String spiderInfoIdUpdateBy, String spiderInfoJson, String callbackUrl) {
         List<String> callbackUrls = Lists.newArrayList(callbackUrl);
@@ -211,7 +212,7 @@ public class CommonWebpageController {
      * @param uuid       爬虫id
      * @param includeRaw 是否包含网页快照
      */
-    @RequestMapping(value = "exportWebpageJSONBySpiderUUID", method = RequestMethod.GET, produces = "application/octet-stream")
+    @RequestMapping(value = "/commons/webpage/exportWebpageJSONBySpiderUUID", method = RequestMethod.GET, produces = "application/octet-stream")
     public void exportWebpageJSONBySpiderUUID(String uuid,
                                               @RequestParam(value = "includeRaw", required = false, defaultValue = "false") Boolean includeRaw,
                                               HttpServletResponse response) throws IOException {
@@ -229,7 +230,7 @@ public class CommonWebpageController {
      * @param domain     domain
      * @param includeRaw 是否包含网页快照
      */
-    @RequestMapping(value = "exportWebpageJSONByDomain", method = RequestMethod.GET, produces = "application/octet-stream")
+    @RequestMapping(value = "/commons/webpage/exportWebpageJSONByDomain", method = RequestMethod.GET, produces = "application/octet-stream")
     public void exportWebpageJSONByDomain(String domain,
                                           @RequestParam(value = "includeRaw", required = false, defaultValue = "false") Boolean includeRaw,
                                           HttpServletResponse response) throws IOException {
@@ -246,7 +247,7 @@ public class CommonWebpageController {
      *
      * @param uuid 爬虫id
      */
-    @RequestMapping(value = "exportTitleContentPairBySpiderUUID", method = RequestMethod.GET, produces = "application/octet-stream")
+    @RequestMapping(value = "/commons/webpage/exportTitleContentPairBySpiderUUID", method = RequestMethod.GET, produces = "application/octet-stream")
     public void exportTitleContentPairBySpiderUUID(String uuid,
                                                    HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");

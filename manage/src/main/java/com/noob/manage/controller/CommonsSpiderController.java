@@ -28,7 +28,8 @@ import java.util.Map;
  * @version 16/4/8
  */
 @Controller
-@RequestMapping("/commons/spider")
+//@RequestMapping("/commons/spider")
+@RequestMapping("/")
 public class CommonsSpiderController extends AsyncGatherBaseController {
     private Logger LOG = LogManager.getLogger(CommonsSpiderController.class);
     private CommonsSpiderService spiderService;
@@ -45,7 +46,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      * @param spiderInfoJson 使用json格式进行序列化的spiderinfo
      * @return 任务id
      */
-    @RequestMapping(value = "start", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/start", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> start(String spiderInfoJson) {
         return spiderService.start(spiderInfoJson);
@@ -57,7 +58,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      * @param uuid 任务id(爬虫uuid)
      * @return
      */
-    @RequestMapping(value = "stop", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/stop", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> stop(String uuid) {
         return spiderService.stop(uuid);
@@ -69,7 +70,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      * @param uuid 爬虫uuid 任务id
      * @return
      */
-    @RequestMapping(value = "runtimeInfo", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/runtimeInfo", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Map<Object, Object>> runtimeInfo(String uuid, @RequestParam(value = "containsExtraInfo", required = false, defaultValue = "false") boolean containsExtraInfo) {
         return spiderService.runtimeInfo(uuid, containsExtraInfo);
@@ -80,7 +81,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      *
      * @return
      */
-    @RequestMapping(value = "list", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/list", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Map<String, Map<Object, Object>>> list(@RequestParam(value = "containsExtraInfo", required = false, defaultValue = "false") boolean containsExtraInfo) {
         return spiderService.list(containsExtraInfo);
@@ -92,7 +93,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      * @param uuid 爬虫uuid 任务id
      * @return
      */
-    @RequestMapping(value = "delete", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/delete", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> delete(String uuid) {
         return spiderService.delete(uuid);
@@ -103,7 +104,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      *
      * @return
      */
-    @RequestMapping(value = "deleteAll", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/deleteAll", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> deleteAll() {
         return spiderService.deleteAll();
@@ -116,7 +117,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      * @param spiderInfoJson
      * @return
      */
-    @RequestMapping(value = "testSpiderInfo", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/testSpiderInfo", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<Webpage> testSpiderInfo(String spiderInfoJson) {
         return spiderService.testSpiderInfo(spiderInfoJson);
@@ -127,7 +128,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      *
      * @return
      */
-    @RequestMapping(value = "getIgnoredUrls", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/getIgnoredUrls", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<String> getIgnoredUrls() {
         return spiderService.getIgnoredUrls();
@@ -138,7 +139,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      *
      * @param postfix
      */
-    @RequestMapping(value = "addIgnoredUrl", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/addIgnoredUrl", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> addIgnoredUrl(String postfix) {
         return spiderService.addIgnoredUrl(postfix);
@@ -150,31 +151,31 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
      * @param spiderInfoIdList 爬虫模板ID列表
      * @return 任务id列表
      */
-    @RequestMapping(value = "startAll", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/startAll", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<String> startAll(String spiderInfoIdList) {
         return spiderService.startAll(Lists.newArrayList(spiderInfoIdList.split(",")));
     }
 
-    @RequestMapping(value = "createQuartzJob", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/createQuartzJob", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> createQuartzJob(String spiderInfoId, int hoursInterval) {
         return spiderService.createQuartzJob(spiderInfoId, hoursInterval);
     }
 
-    @RequestMapping(value = "removeQuartzJob", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/removeQuartzJob", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> removeQuartzJob(String spiderInfoId) {
         return spiderService.removeQuartzJob(spiderInfoId);
     }
 
-    @RequestMapping(value = "checkQuartzJob", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/checkQuartzJob", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public String checkQuartzJob(String spiderInfoId) {
         return spiderService.checkQuartzJob(spiderInfoId).getResult();
     }
 
-    @RequestMapping(value = "exportQuartz", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/exportQuartz", method = RequestMethod.GET, produces = "application/json")
     public void exportQuartz(HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
         response.setContentType("multipart/form-data");
@@ -184,7 +185,7 @@ public class CommonsSpiderController extends AsyncGatherBaseController {
         outputStream.close();
     }
 
-    @RequestMapping(value = "importQuartz", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/commons/spider/importQuartz", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public void importQuartz(String json) {
         spiderService.importQuartz(json);

@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
  * @author Gao Shen
  * @version 16/7/18
  */
-@RequestMapping("/commons/spiderinfo")
+//@RequestMapping("/commons/spiderinfo")
+@RequestMapping("/")
 @RestController
 public class SpiderInfoController {
     private final static Logger LOG = LogManager.getLogger(SpiderInfoController.class);
@@ -31,7 +32,7 @@ public class SpiderInfoController {
      * @param page 页码
      * @return 爬虫模板列表
      */
-    @RequestMapping(value = "listAll", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spiderinfo/listAll", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<SpiderInfo> listAll(@RequestParam(value = "size", required = false, defaultValue = "10") int size, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         return spiderInfoService.listAll(size, page);
@@ -45,7 +46,7 @@ public class SpiderInfoController {
      * @param page   页码
      * @return 爬虫模板
      */
-    @RequestMapping(value = "getByDomain", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spiderinfo/getByDomain", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultListBundle<SpiderInfo> getByDomain(String domain, @RequestParam(value = "size", required = false, defaultValue = "10") int size, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         return spiderInfoService.getByDomain(domain, size, page);
@@ -57,7 +58,7 @@ public class SpiderInfoController {
      * @param domain 网站域名
      * @return 是否全部数据删除成功
      */
-    @RequestMapping(value = "deleteByDomain", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spiderinfo/deleteByDomain", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Boolean> deleteByDomain(String domain) {
         return spiderInfoService.deleteByDomain(domain);
@@ -69,7 +70,7 @@ public class SpiderInfoController {
      * @param id 网页模板id
      * @return 是否删除
      */
-    @RequestMapping(value = "deleteById", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/commons/spiderinfo/deleteById", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ResultBundle<Boolean> deleteById(String id) {
         return spiderInfoService.deleteById(id);
@@ -81,7 +82,7 @@ public class SpiderInfoController {
      * @param spiderInfoJson 使用json格式进行序列化的spiderinfo
      * @return 模板id
      */
-    @RequestMapping(value = "save", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
+    @RequestMapping(value = "/commons/spiderinfo/save", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
     @ResponseBody
     public ResultBundle<String> save(String spiderInfoJson) {
         return spiderInfoService.index(gson.fromJson(spiderInfoJson, SpiderInfo.class));
