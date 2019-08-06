@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -257,6 +258,22 @@ public class WebpageController {
         webpageService.exportTitleContentPairBySpiderUUID(uuid, outputStream);
         outputStream.close();
     }
+
+
+    /**
+     * 根据网页id展示网页
+     *
+     * @param id 网页id
+     * @return 展示页
+     */
+    @RequestMapping(value = "panel/commons/showWebpageById", method = {RequestMethod.GET})
+    public ModelAndView showWebpageById(String id) {
+        ModelAndView modelAndView = new ModelAndView("panel/commons/showWebpageById");
+        modelAndView.addObject("webpage", webpageService.getWebpageById(id).getResult())
+                .addObject("relatedWebpageList", webpageService.moreLikeThis(id, 15, 1).getResultList());
+        return modelAndView;
+    }
+
 }
 
 // 2019-07-22 19:43 看起来都是和页面上单纯的展示、导出相关的功能，且都没有复杂的逻辑，直接去 service 里面看

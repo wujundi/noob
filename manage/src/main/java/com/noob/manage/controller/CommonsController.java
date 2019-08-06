@@ -37,9 +37,9 @@ import java.util.stream.Collectors;
 @Controller
 //@RequestMapping("panel/commons")
 @RequestMapping("/")
-public class CommonsSpiderPanel extends BaseController {
+public class CommonsController /*extends BaseController*/ {
     private static final Gson gson = new Gson();
-    private Logger LOG = LogManager.getLogger(CommonsSpiderPanel.class);
+    private Logger LOG = LogManager.getLogger(CommonsController.class);
     @Autowired
     private SpiderTaskService spiderTaskService;
     @Autowired
@@ -117,22 +117,6 @@ public class CommonsSpiderPanel extends BaseController {
         return modelAndView;
     }
 
-
-
-
-    /**
-     * 根据网页id展示网页
-     *
-     * @param id 网页id
-     * @return 展示页
-     */
-    @RequestMapping(value = "panel/commons/showWebpageById", method = {RequestMethod.GET})
-    public ModelAndView showWebpageById(String id) {
-        ModelAndView modelAndView = new ModelAndView("panel/commons/showWebpageById");
-        modelAndView.addObject("webpage", webpageService.getWebpageById(id).getResult())
-                .addObject("relatedWebpageList", webpageService.moreLikeThis(id, 15, 1).getResultList());
-        return modelAndView;
-    }
 
     /**
      * 获取query的关联信息

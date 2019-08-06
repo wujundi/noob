@@ -30,7 +30,7 @@ import java.util.Map;
 @Controller
 //@RequestMapping("/commons/spider")
 @RequestMapping("/")
-public class SpiderTaskController extends AsyncGatherBaseController {
+public class SpiderTaskController extends AsyncGatherController {
     private Logger LOG = LogManager.getLogger(SpiderTaskController.class);
     private SpiderTaskService spiderService;
 
@@ -193,4 +193,4 @@ public class SpiderTaskController extends AsyncGatherBaseController {
 }
 
 // 2019-07-22 19:26 这个 controller 是爬虫任务基础动作？
-
+// 2019-08-06 21:45 Controller -> AsyncGatherController -> SpiderTaskController

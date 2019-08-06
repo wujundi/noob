@@ -12,4 +12,5 @@ public class BaseController {
 }
 
 // 2019-05-15 09:07
-// 2019-07-29 22:56 真的有点混乱的，一斤有一个 HomeController 了，这边还要再来一个 BaseController ,感觉这 BaseController额外没啥卵用
+// 2019-07-29 22:56 真的有点混乱的，已经有一个 HomeController 了，这边还要再来一个 BaseController ,感觉这 BaseController额外没啥卵用
+// 2019-08-06 21:45 Controller -> AsyncGatherController -> SpiderTaskController

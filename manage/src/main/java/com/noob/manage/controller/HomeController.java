@@ -14,7 +14,7 @@ import com.noob.manage.utils.AppInfo;
  */
 @Controller
 @RequestMapping("/")
-public class HomeController extends BaseController {
+public class HomeController /*extends BaseController*/ {
     private final static Logger LOG = LogManager.getLogger(HomeController.class);
 
     @RequestMapping(value = {"/", ""}, method = RequestMethod.GET)

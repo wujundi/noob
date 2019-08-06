@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.io.IOException;
 
 /**
- * AsyncGatherBaseController
+ * AsyncGatherController
  * 异步抓取器的Controller
  *
  * @author Gao Shen
  * @version 16/2/23
  */
-public class AsyncGatherBaseController extends BaseController {
+public class AsyncGatherController /*extends BaseController*/ { // 这里这个继承真的毫无用处
     private AsyncGatherService asyncGatherService;
-    private Logger LOG = LogManager.getLogger(AsyncGatherBaseController.class);
+    private Logger LOG = LogManager.getLogger(AsyncGatherController.class);
 
-    public AsyncGatherBaseController(AsyncGatherService asyncGatherService) {
+    public AsyncGatherController(AsyncGatherService asyncGatherService) {
         this.asyncGatherService = asyncGatherService;
     }
 
@@ -115,3 +115,5 @@ public class AsyncGatherBaseController extends BaseController {
         return asyncGatherService.getTasksFilterByTime(start, end, containsExtraInfo);
     }
 }
+
+// 2019-08-06 21:45 Controller -> AsyncGatherController -> SpiderTaskController

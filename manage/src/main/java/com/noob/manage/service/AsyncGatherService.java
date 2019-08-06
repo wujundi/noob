@@ -123,3 +123,5 @@ public class AsyncGatherService {
         return bundleBuilder.listBundle("start:" + start + ",end:" + end, () -> asyncGather.getTasksFilterByTime(start, end, containsExtraInfo));
     }
 }
+
+// AsyncGatherService -> SpiderTaskService

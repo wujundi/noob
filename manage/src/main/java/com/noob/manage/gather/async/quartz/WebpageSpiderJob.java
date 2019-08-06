@@ -7,15 +7,20 @@ import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by gaoshen on 2017/1/18.
  */
 @DisallowConcurrentExecution
+@Component
 public class WebpageSpiderJob extends QuartzJobBean {
     private Logger LOG = LogManager.getLogger(WebpageSpiderJob.class);
     private SpiderInfo spiderInfo;
+
+    @Autowired
     private SpiderTaskService spiderTaskService;
 
     public WebpageSpiderJob setSpiderTaskService(SpiderTaskService spiderTaskService) {
