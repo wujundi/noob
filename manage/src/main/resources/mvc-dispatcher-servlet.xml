@@ -58,10 +58,12 @@
         </property>
         <property name="fileEncoding" value="utf-8"/>
     </bean>
+
     <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
     <task:executor id="executor" pool-size="5"/>
     <task:scheduler id="scheduler" pool-size="10"/>
     <task:annotation-driven executor="executor" scheduler="scheduler"/>
+
     <context:component-scan base-package="com.noob.manage.**"/>
     <!-- 更改包名的话，这里也要对应改一下  -->
 </beans>

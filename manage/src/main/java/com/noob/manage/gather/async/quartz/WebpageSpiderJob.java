@@ -15,12 +15,10 @@ import org.springframework.stereotype.Component;
  * Created by gaoshen on 2017/1/18.
  */
 @DisallowConcurrentExecution
-@Component
 public class WebpageSpiderJob extends QuartzJobBean {
     private Logger LOG = LogManager.getLogger(WebpageSpiderJob.class);
     private SpiderInfo spiderInfo;
 
-    @Autowired
     private SpiderTaskService spiderTaskService;
 
     public WebpageSpiderJob setSpiderTaskService(SpiderTaskService spiderTaskService) {
