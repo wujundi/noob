@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<%-- ${pageContext.request.contextPath} 是JSP取得绝对路径的方法 --%>
 <link href="${pageContext.request.contextPath}/imgs/logos/logo_without_char_48X48.ico" type="image/x-icon"
       rel="shortcut icon"/>
 <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/imgs/logos/logo_without_char_48X48.ico"/>
