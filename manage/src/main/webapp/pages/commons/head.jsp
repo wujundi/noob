@@ -5,6 +5,8 @@
   Time: 下午8:39
   To change this template use File | Settings | File Templates.
 --%>
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" style="overflow:scroll">
     <div class="modal-dialog" role="document">
@@ -98,6 +100,7 @@
     </div><!-- /.modal-dialog -->
 </div>
 
+<%-- 页面顶上的导航栏 --%>
 <div class="container">
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="${pageContext.request.contextPath}/">数据采集平台</a>
