@@ -75,6 +75,7 @@ public class CommonsController /*extends BaseController*/ {
             tp.checkAgain();
             tp.setOtherParam(sbf.toString());
         }
+        // 2019-08-13 20:06 这里 addObject 的变量就能在前台通过 el 表达式取到
         modelAndView.addObject("tablePage", tp).addObject("resultBundle", resultBundle.getResult().getKey());
         return modelAndView;
     }

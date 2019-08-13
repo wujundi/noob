@@ -35,6 +35,9 @@
             });
 
         });
+
+        // 搜索页面，结果表条目右侧的 Show 功能的实际逻辑
+		// 实际是通过拼接的方式，动态的插一段 html 标签上去
         function showDetail(id) {
             rpc('${pageContext.request.contextPath}/commons/webpage/getWebpageById', {id: id}, function (data) {
                 $("#modalTitle").text(data.result.title);
@@ -65,6 +68,7 @@
         }
         
         function clearForm(){
+        	// 通过 val(null) 可以清空表单中的数据
 			$("#query").val(null);
 			$("#domain").val(null);
 		}
@@ -77,11 +81,14 @@
     </style>
 
 </head>
+
 <body>
 <%@include file="../../commons/head.jsp" %>
 
 <div class="col-md-10 col-md-offset-1">
     <div class="divide"></div>
+
+    <%-- 抓取页面的搜索功能 --%>
     <div class="container">
 	    <form class="form-inline" id="webpageForm" action="${pageContext.request.contextPath}/panel/commons/list">
 	    	<div class="col-md-5">
@@ -97,6 +104,7 @@
 		        </div>
 	    	</div>
 	    	<div class="col-md-2">
+                <%-- 这个submit 是怎么转换成类似于 http://localhost:8080/manage_war_exploded/panel/commons/list?query=&domain= 这样的请求的呢？--%>
 		        <button type="submit" class="btn btn-primary" id="priceSubmit">搜索</button>
 		        &nbsp;
 		        <a href="javascript:void(0);" class="btn btn-danger" onclick="clearForm();">重置</a>
@@ -126,13 +134,18 @@
 			                    <td>${webpage.title}</td>
 			                    <td>${webpage.domain}</td>
 			                    <td><fmt:formatDate value="${webpage.gathertime}" pattern="yyyy/MM/dd HH:mm:ss"/></td>
+
+								<%-- 不是特别理解，点击show之后的弹窗是怎么做到的？--%>
 			                    <td>
 			                        <button onclick="showDetail('${webpage.id}')" class="btn btn-info">Show</button>
 			                    </td>
+
+                                <%-- showWebpageById 接口好像就是比 getWebpageById 多了一些内容而已。。--%>
 			                    <td>
 			                        <a href="${pageContext.request.contextPath}/panel/commons/showWebpageById?id=${webpage.id}"
 			                           class="btn btn-primary" target="_blank">Go</a>
 			                    </td>
+
 			                    <td>
 			                        <button onclick="rpcAndShowData('${pageContext.request.contextPath}/commons/webpage/deleteById',{id:'${webpage.id}'})"
 			                                class="btn btn-danger"> 删除</button>
@@ -140,6 +153,8 @@
 			                </tr>
 	            		</c:forEach> 
 	            	</c:if>
+					<%-- 如果返回值是null 那么就显示“无数据” --%>
+					<%-- EL存取变量数据的方法很简单，例如：${username}。它的意思是取出某一范围中名称为username的变量。这里后端向前端输送的数据，都是采用这种方式的 --%>
 	            	<c:if test="${resultBundle eq null}">
 	            		<tr>
 	                		<th colspan="7"><div class="text-center"><h3>无数据！</h3></div></th>

@@ -27,13 +27,15 @@
         </tr>
         </thead>
         <tbody>
+
+        <%-- 遍历 domainList 拿出每一个 domain 对象 --%>
         <c:forEach items="${domainList}" var="domain" varStatus="index">
             <tr>
                 <th scope="row">${index.count}</th>
                 <td>${domain.key}</td>
                 <td>${domain.value}</td>
-                <td><a class="btn btn-info"
-                       href="${pageContext.request.contextPath}/panel/commons/list?domain=${domain.key}">查看资讯列表</a>
+                <%-- 按照domain 来搜索webpage 并且跳转到 webpage 展示页面 --%>
+                <td><a class="btn btn-info" href="${pageContext.request.contextPath}/panel/commons/list?domain=${domain.key}">查看资讯列表</a>
                 </td>
                 <td><a class="btn btn-danger"
                        onclick="rpcAndShowData('${pageContext.request.contextPath}/commons/webpage/deleteByDomain', {domain: '${domain.key}'});">删除网站数据</a>
