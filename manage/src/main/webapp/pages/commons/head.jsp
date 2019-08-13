@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%--
+这里的每一个 div 标签下 都有 id 属性，
+每一块相当于是一个“函数”或者说“弹窗”，是实现相应动作的标签集合
+bootStrap 中的按钮可以通过 data-target="#myModal" 指定点击之后触发指定的插件
+--%>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" style="overflow:scroll">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -25,6 +31,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
+
+
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" style="overflow:scroll">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -45,6 +53,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
+
+
 <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" style="overflow:scroll">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -68,6 +78,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
+
 
 <div class="modal fade" id="tableModal" tabindex="-1" role="dialog" style="overflow:scroll">
     <div class="modal-dialog" role="document">
@@ -98,7 +109,9 @@
     </div><!-- /.modal-dialog -->
 </div>
 
+
 <div class="container">
+    <%-- 这里看出，前端的写法是 以 jsp 为载体，使用的 bootstrap --%>
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="${pageContext.request.contextPath}/">数据采集平台</a>
         <ul class="nav navbar-nav">

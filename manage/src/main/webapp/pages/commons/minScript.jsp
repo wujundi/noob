@@ -6,3 +6,5 @@
 <!-- javascript -->
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+
+<%-- 2019-08-12 19:15 按照名称来理解，这是满足 bootstrap 框架的最基本 js 包 --%>

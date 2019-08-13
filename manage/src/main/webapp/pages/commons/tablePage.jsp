@@ -3,7 +3,10 @@
   2017-5-18 20:07:59
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%-- JSP标准标签库（JSTL）是一个JSP标签集合，它封装了JSP应用的通用核心功能。 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 使用 jsp 的 jstl 语法 实现的 if 逻辑 --%>
+<%-- 这个 tablePage 应该是需要外面传进来的 --%>
 <c:if test="${tablePage ne null}"> 
 	<!-- 表格底部页码 -->
 	<div class="box">
@@ -20,16 +23,22 @@
 				<div class="" id="">
 					<ul class="pagination">
 						<c:if test="${tablePage.currentPage ne 1 }">
-							<li class=""><a
-								href="?page=1${tablePage.otherParam }">首页</a></li>
+							<li class="">
+								<a href="?page=1${tablePage.otherParam }">首页</a>
+							</li>
 							<c:if test="${tablePage.pageCount ge 3 }">
-								<li class=""><a
-									href="?page=${tablePage.currentPage-1 }${tablePage.otherParam }"><span
-										aria-hidden="true">&laquo;</span></a></li>
+								<li class="">
+									<a href="?page=${tablePage.currentPage-1 }${tablePage.otherParam }">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
 							</c:if>
 							<c:if test="${tablePage.pageCount le (3-1) }">
-								<li class="disabled"><a href="#"><span
-										aria-hidden="true">&laquo;</span></a></li>
+								<li class="disabled">
+									<a href="#">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
 							</c:if>
 						</c:if>
 						<c:if test="${tablePage.currentPage eq 1 }">
@@ -39,31 +48,43 @@
 						
 						<c:forEach begin="${tablePage.pageRange[0] }" end="${tablePage.pageRange[1] }" step="1" varStatus="numIndex" >
 							<c:if test="${tablePage.currentPage eq numIndex.index }">
-								<li class="active"><a
-									href="?page=${numIndex.index }${tablePage.otherParam }">${numIndex.index }</a></li>
+								<li class="active">
+									<a href="?page=${numIndex.index }${tablePage.otherParam }">${numIndex.index }</a>
+								</li>
 							</c:if>
 							<c:if test="${tablePage.currentPage ne numIndex.index }">
-								<li><a
-									href="?page=${numIndex.index }${tablePage.otherParam }">${numIndex.index }</a></li>
+								<li>
+									<a href="?page=${numIndex.index }${tablePage.otherParam }">${numIndex.index }</a>
+								</li>
 							</c:if>
 						</c:forEach>
 						
 						<c:if test="${tablePage.currentPage ne tablePage.pageCount }">
 						
 							<c:if test="${tablePage.pageCount ge 3 }">
-								<li><a
-									href="?page=${tablePage.currentPage + 1 }${tablePage.otherParam }"><span
-										aria-hidden="true">&raquo;</span></a></li>
+								<li>
+									<a href="?page=${tablePage.currentPage + 1 }${tablePage.otherParam }">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
 							</c:if>
 							<c:if test="${tablePage.pageCount le (3-1) }">
-								<li class="disabled"><a href="#"><span
-										aria-hidden="true">&raquo;</span></a></li>
+								<li class="disabled">
+									<a href="#">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
 							</c:if>
-							<li><a
-								href="?page=${tablePage.pageCount }${tablePage.otherParam }">末页</a></li>
+							<li>
+								<a href="?page=${tablePage.pageCount }${tablePage.otherParam }">末页</a>
+							</li>
 						</c:if>
 						<c:if test="${tablePage.currentPage eq tablePage.pageCount }">
-							<li class="disabled"><a href="#"><span aria-hidden="true">&raquo;</span></a></li>
+							<li class="disabled">
+								<a href="#">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
 							<li class="disabled"><a href="#">末页</a></li>
 						</c:if>
 					</ul>
