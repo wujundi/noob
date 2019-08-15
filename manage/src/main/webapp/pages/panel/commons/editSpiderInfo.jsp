@@ -27,8 +27,11 @@
                 return val;
             }, space);
         }
+
+        // 2019-08-15 20：15
         function formToJson(form) {
             var result = {};
+            // serializeArray() 方法通过序列化表单值来创建对象（name 和 value）的数组。
             var fieldArray = $("#" + form).serializeArray();
             for (var i = 0; i < fieldArray.length; i++) {
                 var field = fieldArray[i];
@@ -38,6 +41,9 @@
                     result[field.name] = field.value;
                 }
             }
+            // prop() 方法设置或返回被选元素的属性和值。
+            // 例如：$x.prop("color","FF0000");
+            // 例如：$x.prop("color")
             result['gatherFirstPage'] = $("#gatherFirstPage").prop('checked');
             result['doNLP'] = $("#doNLP").prop('checked');
             result['needTitle'] = $("#needTitle").prop('checked');
@@ -48,12 +54,14 @@
             result['saveCapture'] = $("#saveCapture").prop('checked');
             result['autoDetectPublishDate'] = $("#autoDetectPublishDate").prop('checked');
             result['ajaxSite'] = $("#ajaxSite").prop('checked');
+            // 所谓"动态字段",其实就是支持自定义抽取方式的字段
             var dynamicFields = [];
             var fieldConfigList = $('.dynamicField');
             for (i = 0; i < fieldConfigList.length; i++) {
                 var fieldDom = $('.dynamicField:eq(' + i + ')');
                 var fieldId = fieldDom.attr('id');
                 var fieldName = fieldDom.attr('name');
+                // 每一个字段的名字，及抽取方式(支持正则/xpath)，都被封装成了 fieldConfig 对象
                 var fieldConfig = {'regex': '', 'xpath': '', 'name': '', 'need': false};
                 fieldConfig['name'] = fieldName;
                 fieldConfig['regex'] = $('#' + fieldName + 'Reg').val();
@@ -61,10 +69,14 @@
                 fieldConfig['need'] = $('#need' + fieldName).prop('checked');
                 dynamicFields.push(fieldConfig);
             }
+            // 把动态字段塞到一个数组中，“挂靠”到 dynamicFields 属性下
             result['dynamicFields'] = dynamicFields;
+
             var staticFields = [];
+            // 这里是按照标签中的 id 属性来抽取相关的数据的
             var staticFiledDomList = $('.staticField');
             for (i = 0; i < staticFiledDomList.length; i++) {
+                // 这里好像并不是底层意义上的遍历，好像是 每一轮都按照 i 来“搜索”出来的？
                 var staticFieldDom = $('.staticField:eq(' + i + ')');
                 var staticFieldName = staticFieldDom.attr('name');
                 var staticFieldConfig = {'name': '', 'value': ''};
@@ -72,9 +84,13 @@
                 staticFieldConfig['value'] = $('#static-' + staticFieldName + '-value').val();
                 staticFields.push(staticFieldConfig);
             }
+            // 静态字段的玩法也差不多，都是塞到一个数组中，然后挂靠
+            // 采用数组来存也有道理，这样字段个数很好扩展，没啥限制
             result['staticFields'] = staticFields;
+
             return result;
         }
+
         function downloadFile(fileName, content) {
             var aLink = document.createElement('a');
             var blob = new Blob([content]);
@@ -305,15 +321,23 @@
         function save() {
             rpcAndShowData("${pageContext.request.contextPath}/commons/spiderinfo/save", {spiderInfoJson: JSON.stringify(formToJson("spiderInfoForm"))});
         }
+        // 2019-08-15 20:34
+        // blur()方法，在jquery 中用于处理失焦事件
         function onDomainBlur() {
             var domain = $('#domain').val();
+            // val() 方法返回或设置被选元素的 value 属性。
+            // 举例：返回 value 属性：$(selector).val()
+            // 举例：设置 value 属性：$(selector).val(value)
+            // 这里是拼接 startURL 框框中所展示的信息
             $('#startURL').val('[\'http://' + domain + '/\']');
+            // 先去请求后端接口，看有无这个 domain 的模板
             $.getJSON('${pageContext.request.contextPath}/commons/spiderinfo/getByDomain', {domain: domain}, function (data) {
                 if (data.count > 0) {
                     showModal("请确认", "服务器中已包含此网站的模板,确定要继续配置吗?",
                             function () {//cancel
                                 var result = formToJson("spiderInfoForm");
                                 localStorage["spiderInfo"] = jsonStringify(result, 0);
+                                // 页面重定向
                                 window.location.href = "${pageContext.request.contextPath}/panel/commons/listSpiderInfo?domain=" + domain;
                             },
                             function () {//confirm
@@ -328,6 +352,8 @@
         }
     </script>
 </head>
+
+<%-- 这个页面的函数有点多呢 --%>
 <body>
 <%@include file="../../commons/head.jsp" %>
 <div class="container">
@@ -341,6 +367,7 @@
                 </div>
                 <div class="form-group">
                     <label for="domain">domain</label>
+                    <%-- 在域名窗口获得光标，然后失焦的情况下，会触发onblur对应的方法 --%>
                     <input type="text" class="form-control" id="domain" name="domain" placeholder="域名"
                            value="${spiderInfo.domain}"
                            onblur="onDomainBlur()">
@@ -640,7 +667,9 @@
                         </label>
                     </div>
                 </div>
+                <%-- form 标签下 type="submit" 的 button 标签，好像可以直接触发 form 标签中对应的 action --%>
                 <button type="submit" class="btn btn-info">抓取样例数据</button>
+                <%-- 下面这几个按钮都是触发前端动作的 --%>
                 <button type="button" class="btn btn-primary" onclick="exportJson()">导出模板</button>
                 <button type="button" class="btn btn-danger" onclick="submitTask()">提交抓取任务</button>
                 <button type="button" class="btn btn-warning" onclick="save()">存储此模板</button>
