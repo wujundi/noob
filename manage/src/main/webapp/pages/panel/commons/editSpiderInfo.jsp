@@ -100,7 +100,9 @@
             aLink.href = URL.createObjectURL(blob);
             aLink.dispatchEvent(evt);
         }
+
         function exportJson() {
+            // 直接这一步，就从前端把所有填写的信息收集到了
             var result = formToJson("spiderInfoForm");
             var jsonResult = jsonStringify(result, 4);
             downloadFile(result['domain'] + '.json', jsonResult);
@@ -135,6 +137,7 @@
             inputModal("字段名称(必须为英文)", function (data) {
                 count = $('.dynamicField').length + 1;
                 fieldName = data;
+                // 动态生成 dom 结构
                 $('#dynamicFields').append('<div id="dynamicField' + count + '" class="dynamicField" name=' + fieldName + '>\
                             <button class="btn btn-danger" type="button" onclick="$(\'#dynamicField' + count + '\').remove();">删除动态字段' + fieldName + '</button>\
                     <div class="form-group">\
@@ -159,11 +162,16 @@
             });
 
         }
+
+        /**
+         * 添加静态字段
+         */
         function addStaticField() {
             var fieldName;
             inputModal("字段名称(必须为英文)", function (data) {
                 count = $('.staticField').length + 1;
                 fieldName = data;
+                // 一样的形式，动态生成 dom 结构，用于承接用户填写的信息
                 $('#staticFields').append('<div id="staticField' + count + '" class="staticField" name="' + fieldName + '">\
                                     <button class="btn btn-danger" type="button"\
                             onclick="$(\'#staticField' + count + '\').remove();">删除静态字段' + fieldName + '</button>\
@@ -178,11 +186,14 @@
             });
 
         }
+
         var dynamicFieldList = {};
         function showDynamicFields(id) {
             var fields = dynamicFieldList[id];
             tableModal(fields, id + "动态字段");
         }
+
+        // 2019-08-21 23:20 这个东西是什么？ 要如何触发？
         $(function () {
             var validate = $("#spiderInfoForm").validate({
                 submitHandler: function (form) {   //表单提交句柄,为一回调函数，带一个参数：form
@@ -315,9 +326,12 @@
             }
             return validate;
         }, "url列表必须有至少一个url,必须为json格式,且每个链接必须使用http或者https开头");
+
+        // 提交按钮提交并且跳转
         function submitTask() {
             rpcAndShowData("${pageContext.request.contextPath}/commons/spider/start", {spiderInfoJson: JSON.stringify(formToJson("spiderInfoForm"))});
         }
+
         function save() {
             rpcAndShowData("${pageContext.request.contextPath}/commons/spiderinfo/save", {spiderInfoJson: JSON.stringify(formToJson("spiderInfoForm"))});
         }
@@ -472,6 +486,7 @@
                     <div class="form-group" id="dynamicFields">
                         <button type="button" onclick="addDynamicField()" class="btn btn-info">添加动态字段
                         </button>
+                        <%-- 随着动态字段的添加，添加完的字段要及时的显示在页面上 --%>
                         <c:forEach items="${spiderInfo.dynamicFields}" var="field" varStatus="index">
                             <div id="dynamicField${index.count}" class="dynamicField" name="${field.name}">
                                 <button class="btn btn-danger" type="button"
@@ -509,6 +524,7 @@
                     <div class="form-group" id="staticFields">
                         <button type="button" onclick="addStaticField()" class="btn btn-info">添加静态字段
                         </button>
+                        <%-- 道理同静态字段，添加之后要即使显示出来 --%>
                         <c:forEach items="${spiderInfo.staticFields}" var="field" varStatus="index">
                             <div id="staticField${index.count}" class="staticField" name="${field.name}">
                                 <button class="btn btn-danger" type="button"
@@ -567,6 +583,8 @@
                                placeholder="proxyPassword"
                                value="${spiderInfo.proxyPassword}">
                     </div>
+
+                    <%-- 这块要学习下，选框是这样做的 --%>
                     <div class="form-group">
                         <div class="checkbox">
                             <label>
@@ -680,6 +698,8 @@
         </div>
     </div>
 </div>
+
+<%-- 其实填充就是把json作为post请求的参数，发送请求，再次请求页面数据 --%>
 <div class="container">
     <form id="import" action="${pageContext.request.contextPath}/panel/commons/editSpiderInfo" method="post">
         <fieldset class="form-group">
@@ -690,6 +710,8 @@
         <button type="submit" class="btn btn-warning">自动填充</button>
     </form>
 </div>
+
+
 <div class="container">
     <div class="alert alert-success" style="display: none;" role="alert" id="taskIdDiv">
         <strong>Well done!</strong>抓取任务ID:<span id="taskId"></span>.
@@ -722,6 +744,8 @@
 </div>
  
 </body>
+
+<%-- 2019-08-21 下面这段js逻辑在什么时候触发？--%>
 <script>
     //JSON格式填充起始URL
     var startUrls = [];

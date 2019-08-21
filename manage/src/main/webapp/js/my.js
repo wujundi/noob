@@ -35,6 +35,8 @@ function tableModal(data, title) {
     $("#tableModalBody").html(html);
     $('#tableModal').modal('show');
 }
+
+// 点击按钮触发跳转到其他 url 时的弹框就是这里在工作
 function rpc(url, pram, callback) {
     $("#confirmModalTitle").text("确定?");
     $("#confirmModalBody").html("确定要执行" + url + "吗?");
@@ -50,6 +52,7 @@ function rpc(url, pram, callback) {
     needShowResultModel = false;
     $('#confirmModal').modal('show');
 }
+
 function rpcAndShowData(url, pram) {
     rpc(url, pram, function (data) {
         needShowResultModel = false;
