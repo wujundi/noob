@@ -28,7 +28,7 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.11</version>
+				<version>4.13.1</version>
 				<!-- 暂时兼容 webmagic-core 中出现在source包的测试类，将 junit 的范围不止限定在 extension 作用域内 -->
 				<!-- <scope>extension</scope> -->
 			</dependency>
